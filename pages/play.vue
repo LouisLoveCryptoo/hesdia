@@ -6,7 +6,7 @@
         v-for="(play, index) in pairPlayData"
         :key="index"
       >
-        <div class="play__buttons">
+        <div class="play__buttons" v-if="!response.show">
           <button @click="gameResponse(1, play.id)">+</button>
           <button @click="gameResponse(0, play.id)">-</button>
         </div>
