@@ -1,45 +1,41 @@
 <style scoped>
-.header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    height: auto;
-    background-color: var(--background-color-secondary);
-    padding: 1rem 4rem 1rem 4rem;
-}
-    
-.logo svg{
-
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem var(--sides-padding);
 }
 
-nav{
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
-nav a{
-    color: var(--color-text);
-    font-weight: 600;
-    text-decoration: none;
+nav a {
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav a:last-child {
+  color: var(--bg-color-secondary);
 }
 </style>
 
 <template>
-<div class="header">
+  <header>
     <div class="logo">
-        <img src="../assets/img/logo.svg" alt="">
+      <img src="../assets/img/logo.svg" alt="" />
     </div>
-    
-            <nav>
-                <a href="">Besoin d'aide ?</a>
-                <a href="">Médias</a>
-                
-                <button-header />
 
-            </nav>
-            
-</div>
+    <nav>
+      <nuxt-link to="">Besoin d'aide ?</nuxt-link>
+      <nuxt-link to="/">Médias</nuxt-link>
 
+      <button-arrow path="/play">
+        Jouer
+      </button-arrow>
+    </nav>
+  </header>
 </template>
