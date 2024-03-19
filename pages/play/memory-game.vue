@@ -1,6 +1,6 @@
 <template>
   <h1>Memory Game</h1>
-  <div class="memory__game">
+  <div class="memory__game" v-if="playData">
     <div
       v-for="(card, index) in playData"
       :key="index"
