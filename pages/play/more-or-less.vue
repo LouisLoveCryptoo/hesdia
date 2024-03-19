@@ -43,7 +43,7 @@
  * Objet réactif pour fetch les données du jeu
  * @type {object}
  */
-const { data: playData } = useFetch("/api/play");
+const { data: playData } = useFetch("/api/play/more-or-less");
 
 /**
  * Objet réactif pour la réponse du jeu
