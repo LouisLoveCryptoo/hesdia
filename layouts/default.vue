@@ -23,11 +23,28 @@ body {
   --color-orange-light: #ffa750;
   --color-text: #353838;
 
-  --background-color-main: #e5d1bd;
-  --background-color-secondary: #f9eee8;
+  --background-color-main:#E5D1BD;
+  --background-color-secondary:#F9EEE8;
+
+  --padding-box:2rem;
+
+  --fs-title:3rem;
+  --fs-subtitle:2rem;
+  --fs-subsubtitle:1.8rem;
+  --fs-button:1.5rem;
+  --fs-text:1rem;
+
+  --ms-tablet:1200px;
+  --ms-phone:800px;
 }
 
-.box__padding {
-  padding: var(--padding-box);
+@media screen and (max-width: var(--ms-tablet)) {
+  :root {
+    --fs-title:2.5rem;
+  }
+}
+
+h1 {
+  font-size: var(--fs-title);
 }
 </style>
