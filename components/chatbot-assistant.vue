@@ -20,14 +20,15 @@
         </button>
       </div>
       <div class="chatbot__content">
-        <p class="proposal"
+        <p
+          class="proposal"
           v-for="(prop, index) in proposals"
           :key="index"
           @click="sendMessage(prop.message, 1)"
         >
           {{ prop.content }}
         </p>
-        <hr>
+        <hr />
         <!-- <article class="gpt">
           <p class=""><small>Assistant</small></p>
           Bonjour, je suis ton assistant personnel. Comment puis-je t'aider ?
@@ -36,7 +37,11 @@
           v-for="(mess, index) in messages"
           :key="index"
           :class="mess.from == 0 ? 'gpt' : 'user'"
-          :ref="el => { if (el) state.messagesEl[index] = el }"
+          :ref="
+            (el) => {
+              if (el) state.messagesEl[index] = el;
+            }
+          "
         >
           <p class="article__top">
             <small>{{ mess.from == 0 ? "Assistant" : "Moi" }}</small>
@@ -61,7 +66,7 @@
   </aside>
   <button
     :class="['chatbot__open', { active: active, 'full-screen': fullScreen }]"
-    @click="active = !active"
+    @click="handleChatbotActive()"
   >
     <img src="../assets/img/chatbot-face.svg" alt="" />
     <div>
@@ -84,15 +89,16 @@
 const proposals = ref([
   {
     content: "Informations sur le média",
-    message: "J'aimerais que tu me donnes des informations sur le média Hesbia, s'il te plaît !"
+    message:
+      "J'aimerais que tu me donnes des informations sur le média Hesbia, s'il te plaît !",
   },
   {
     content: "Besoin d'aide ?",
-    message: "J'ai besoin d'aide, peux-tu m'aider s'il te plaît ?"
+    message: "J'ai besoin d'aide, peux-tu m'aider s'il te plaît ?",
   },
   {
     content: "Nous rejoindre !",
-    message: "Comment puis-je rejoindre l'équipe de Hesbia ?"
+    message: "Comment puis-je rejoindre l'équipe de Hesbia ?",
   },
 ]);
 
@@ -112,10 +118,12 @@ const fullScreen = ref(false);
  * Tableau des messages
  * @type {ref<Array>}
  */
-const messages = ref([{
-  content: "Comment puis-je t'aider ?",
-  from: 0
-}]);
+const messages = ref([
+  {
+    content: "Comment puis-je t'aider ?",
+    from: 0,
+  },
+]);
 
 /**
  * Etat du chatbot
@@ -123,7 +131,7 @@ const messages = ref([{
  */
 const state = reactive({
   waitingForResponse: false,
-  messagesEl: []
+  messagesEl: [],
 });
 
 /**
@@ -131,6 +139,12 @@ const state = reactive({
  * @type {ref<string>}
  */
 const inputMess = ref("");
+
+const handleChatbotActive = () => {
+  active.value = !active.value;
+
+  scrollToBottom('auto');
+};
 
 /**
  * Ajoute un message à la liste des messages
@@ -148,10 +162,7 @@ const sendMessage = (mess, from) => {
   /**
    * Scroll jusqu'au dernier message
    */
-  nextTick(() => {
-    const lastChild = state.messagesEl[state.messagesEl.length - 1];
-    lastChild.scrollIntoView({ behavior: 'smooth' });
-  });
+  scrollToBottom("smooth");
 
   inputMess.value = "";
   console.log(messages.value);
@@ -160,6 +171,13 @@ const sendMessage = (mess, from) => {
     ? (state.waitingForResponse = true)
     : (state.waitingForResponse = false);
   from === 1 ? sendToGpt(mess) : null;
+};
+
+const scrollToBottom = (behavior) => {
+  nextTick(() => {
+    const lastChild = state.messagesEl[state.messagesEl.length - 1];
+    lastChild.scrollIntoView({ behavior: behavior });
+  });
 };
 
 /**
@@ -194,7 +212,7 @@ aside {
 aside.active.full-screen {
   width: 80vw;
   height: 80vh;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 aside.active {
