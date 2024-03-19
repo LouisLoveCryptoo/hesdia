@@ -20,6 +20,14 @@
         </button>
       </div>
       <div class="chatbot__content">
+        <p class="proposal"
+          v-for="(prop, index) in proposals"
+          :key="index"
+          @click="sendMessage(prop.message, 1)"
+        >
+          {{ prop.content }}
+        </p>
+        <hr>
         <!-- <article class="gpt">
           <p class=""><small>Assistant</small></p>
           Bonjour, je suis ton assistant personnel. Comment puis-je t'aider ?
@@ -28,6 +36,7 @@
           v-for="(mess, index) in messages"
           :key="index"
           :class="mess.from == 0 ? 'gpt' : 'user'"
+          :ref="el => { if (el) state.messagesEl[index] = el }"
         >
           <p class="article__top">
             <small>{{ mess.from == 0 ? "Assistant" : "Moi" }}</small>
@@ -50,33 +59,100 @@
       </div>
     </div>
   </aside>
-  <button class="chatbot__open" @click="active = !active"></button>
+  <button
+    :class="['chatbot__open', { active: active, 'full-screen': fullScreen }]"
+    @click="active = !active"
+  >
+    <img src="../assets/img/chatbot-face.svg" alt="" />
+    <div>
+      <svg
+        clip-rule="evenodd"
+        fill-rule="evenodd"
+        stroke-linejoin="round"
+        stroke-miterlimit="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"
+        />
+      </svg>
+    </div>
+  </button>
 </template>
 <script setup>
-/**
- * Bool pour toogle le chatbot
- * @type {boolean}
- */
-const active = ref(false);
-const fullScreen = ref(false);
-const messages = ref([
+const proposals = ref([
   {
-    content:
-      "Bonjour, je suis ton assistant personnel. Comment puis-je t'aider ?",
-    from: 0,
+    content: "Informations sur le média",
+    message: "J'aimerais que tu me donnes des informations sur le média Hesbia, s'il te plaît !"
+  },
+  {
+    content: "Besoin d'aide ?",
+    message: "J'ai besoin d'aide, peux-tu m'aider s'il te plaît ?"
+  },
+  {
+    content: "Nous rejoindre !",
+    message: "Comment puis-je rejoindre l'équipe de Hesbia ?"
   },
 ]);
 
+/**
+ * Bool pour toogle le chatbot
+ * @type {ref<boolean>}
+ */
+const active = ref(false);
+
+/**
+ * Bool pour toogle le chatbot en plein écran
+ * @type {ref<boolean>}
+ */
+const fullScreen = ref(false);
+
+/**
+ * Tableau des messages
+ * @type {ref<Array>}
+ */
+const messages = ref([{
+  content: "Comment puis-je t'aider ?",
+  from: 0
+}]);
+
+/**
+ * Etat du chatbot
+ * @type {ref<object>}
+ */
 const state = reactive({
   waitingForResponse: false,
+  messagesEl: []
 });
 
+/**
+ * Message de l'utilisateur (input)
+ * @type {ref<string>}
+ */
 const inputMess = ref("");
 
+/**
+ * Ajoute un message à la liste des messages
+ * et envoie le message à l'API si from = 1
+ * Require : message non vide et state.waitingForResponse = false
+ * @param {string} mess
+ * @param {number} from
+ */
 const sendMessage = (mess, from) => {
   if (!mess) return;
+  if (state.waitingForResponse && from === 1) return;
   mess = mess.trim();
   messages.value.push({ content: mess, from: from });
+
+  /**
+   * Scroll jusqu'au dernier message
+   */
+  nextTick(() => {
+    const lastChild = state.messagesEl[state.messagesEl.length - 1];
+    lastChild.scrollIntoView({ behavior: 'smooth' });
+  });
+
   inputMess.value = "";
   console.log(messages.value);
 
@@ -86,6 +162,10 @@ const sendMessage = (mess, from) => {
   from === 1 ? sendToGpt(mess) : null;
 };
 
+/**
+ * Envoie le message à l'API
+ * @param {string} prompt
+ */
 const sendToGpt = async (prompt) => {
   const res = await $fetch("/api/chatbot/response", {
     method: "POST",
@@ -94,9 +174,8 @@ const sendToGpt = async (prompt) => {
       history: messages.value,
     },
   });
-
-  console.log(res);
   sendMessage(res.content, res.from);
+  state.waitingForResponse = false;
 };
 </script>
 <style setup>
@@ -109,7 +188,7 @@ aside {
   transform: scale(0);
   transform-origin: bottom right;
   will-change: transform;
-  font-size: .85rem;
+  font-size: 0.85rem;
 }
 
 aside.active.full-screen {
@@ -151,6 +230,23 @@ aside.active.full-screen svg {
   height: 100%;
 }
 
+.chatbot .proposal {
+  padding: 10px;
+  margin: 5px;
+  background: var(--bg-color-secondary);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chatbot hr {
+  width: 80%;
+  margin: 10px;
+  margin-left: 10%;
+  height: 4px;
+  border-radius: 10px;
+  background: var(--color-orange-dark);
+}
+
 .chatbot__top {
   display: flex;
   justify-content: space-between;
@@ -163,11 +259,56 @@ aside.active.full-screen svg {
 }
 
 button.chatbot__open {
-  background: var(--color-orange-dark);
-  padding: 8px 10px;
+  z-index: 20;
+  background: #d9d9d9;
+  padding: 10px;
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   bottom: 3%;
   right: 3%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+button.chatbot__open img,
+button.chatbot__open div {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transition: 0.4s ease;
+  filter: blur(0px);
+  will-change: transform, filter;
+}
+
+button.chatbot__open div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  filter: blur(5px);
+}
+
+button.chatbot__open div span {
+  position: absolute;
+  will-change: transform;
+}
+
+button.chatbot__open.active img {
+  filter: blur(5px);
+  transform: rotate(180deg);
+  opacity: 0;
+}
+
+button.chatbot__open.active div {
+  opacity: 1;
+  transform: rotate(90deg);
+  filter: blur(0px);
 }
 
 .chatbot__content {
@@ -187,6 +328,10 @@ article {
   background: var(--bg-color-secondary);
   border-radius: 5px;
   width: 70%;
+}
+
+article:last-child {
+  margin-bottom: 15px;
 }
 
 article.user {

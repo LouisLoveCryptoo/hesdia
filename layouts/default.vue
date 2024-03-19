@@ -44,6 +44,11 @@ body {
   background-color: var(--background-color-secondary);
 }
 
+hr {
+  outline: none;
+  border: none;
+}
+
 button {
   background: none;
   border: none;
