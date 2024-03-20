@@ -62,12 +62,13 @@
     <div class="question">
       <h1>Tu as une question ?</h1>
       <p>Nous avons des réponses</p>
-      <div>
-        <h4>Quel est le numéro d'urgence ?</h4>
-        <h4>Quels sont les différents types de cyber-harcèlement ?</h4>
-        <h4>Que faire si je suis victime ou témoin de cyber-harcèlement ?</h4>
-        <h4>Quels signes peuvent vous alerter d'une situation de cyber-harcèlement  ?</h4>
-      </div>
+      <div v-for="(faq, index) in faqs" :key="`faq-${index}`" class="faq-item">
+          <h4 @click="toggleFaq(index)">
+            <span>{{ faq.question }}</span>
+            <span class="arrow" :class="{ 'is-open': activeFaqIndex === index }"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m10.211 7.155c-.141-.108-.3-.157-.456-.157-.389 0-.755.306-.755.749v8.501c0 .445.367.75.755.75.157 0 .316-.05.457-.159 1.554-1.203 4.199-3.252 5.498-4.258.184-.142.29-.36.29-.592 0-.23-.107-.449-.291-.591zm.289 7.563v-5.446l3.522 2.719z" fill-rule="nonzero"/></svg></span>
+          </h4>
+          <p v-if="activeFaqIndex === index" class="faq-answer">{{ faq.answer }}</p>
+        </div>
     </div>
     <div class="svg">
       <svg width="237" height="263" viewBox="0 0 237 263" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,6 +100,32 @@
 
   
 </template>
+
+<script>
+
+export default {
+  data() {
+    return {
+      activeFaqIndex: null, // Indice de la FAQ actuellement active
+      faqs: [
+        { question: "Quel est le numéro d'urgence ?", answer: "Le numéro à composer en cas de cyber-harcèlement varie selon les pays. En France, par exemple, vous pouvez contacter le 3018. Ce numéro, gratuit et confidentiel, est destiné à l'écoute, au conseil, et à l'orientation des personnes victimes de cyber-harcèlement, ainsi qu'à leurs proches. Il est accessible du lundi au samedi." },
+        { question: "Quels sont les différents types de cyber-harcèlement ?", answer: "Le cyber-harcèlement peut prendre plusieurs formes, dont : Messages haineux ou menaçants : Envoyés par e-mail, SMS, ou sur les réseaux sociaux. Diffamation : Propagation de rumeurs ou d'informations fausses pour nuire à la réputation d'une personne. Usurpation d'identité : Utilisation des données personnelles de quelqu'un pour créer de faux profils ou pour commettre des actes malveillants. Publication de contenus embarrassants ou intimes : Sans le consentement de la personne concernée. Cyberstalking : Surveillance en ligne excessive et obsessionnelle qui s'accompagne souvent de menaces. Exclusion sociale en ligne : Isolement intentionnel d'une personne sur les plateformes numériques." },
+        { question: "Que faire si je suis victime ou témoin de cyber-harcèlement ?", answer: "Si vous êtes victime ou témoin de cyber-harcèlement, voici quelques étapes à suivre : Ne répondez pas aux provocations. Cela pourrait aggraver la situation. Conservez les preuves. Capturez des écrans des messages ou contenus nuisibles. Bloquez l'agresseur sur les plateformes où le harcèlement a lieu. Parlez-en à une personne de confiance (un parent, un ami, un enseignant, etc.) pour obtenir du soutien. Signalez les contenus abusifs aux plateformes et réseaux sociaux utilisés pour le harcèlement. Contactez le numéro d'urgence spécifique à votre pays pour le cyber-harcèlement. Portez plainte auprès des autorités compétentes si le harcèlement persiste ou est particulièrement grave." },
+        { question: "Quels signes peuvent vous alerter d'une situation de cyber-harcèlement ?", answer: "Les signes pouvant indiquer que quelqu'un est victime de cyber-harcèlement incluent : Changements soudains dans l'utilisation des appareils électroniques, comme les éviter ou les utiliser excessivement. Émotions fortes (colère, tristesse, anxiété) après l'utilisation des appareils électroniques. Reluctance à participer à des activités sociales ou scolaires. Changements dans les performances scolaires. Signes de stress, d'anxiété, ou de dépression. Évitement des discussions sur ce qu'ils font en ligne." },
+      ],
+    };
+  },
+  methods: {
+    toggleFaq(index) {
+      this.activeFaqIndex = this.activeFaqIndex === index ? null : index;
+    },
+  },
+}
+
+
+
+
+</script>
 
 <style scoped>
 
@@ -207,17 +234,22 @@ form input, form textarea {
   padding: 10px;
   font-size: 20px;
   font-weight: 300;
-  border: 1px solid #949595;
+  background-color: var(--bg-color-secondary);
+  border: 2px solid #949595;
   border-radius:5px;
   width:100%;
 }
 
-
+form input:focus, form textarea:focus{
+  outline: none;
+  border: 2px solid var(--color-orange-dark);
+}
 
 form textarea{
   height: 200px;
-
 }
+
+
 
 .valid{
   display: flex;
@@ -296,8 +328,33 @@ form textarea{
 .box .faq .question div{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   margin-top:50px;
+}
+
+.box .faq .question div h4{
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.box .faq .question div .arrow svg{
+  fill:#fff;
+  width: 50px;
+  cursor:pointer;
+  transition: all 0.5s;
+}
+
+.box .faq .question div .arrow.is-open svg{
+  transform: rotate(90deg);
+  transition: all 0.5s;
+}
+
+.box .faq .question div p{
+  max-width:950px;
 }
 
 
@@ -317,6 +374,10 @@ form textarea{
 
 
 
+
+
+
+
 /* Responsive */
 @media (max-width: 700px) {
 
@@ -324,13 +385,17 @@ form textarea{
     margin-bottom: 35%;
   }
 
+.container .text{
+  margin-top: 35%;
+}
+
   .container svg{
     width: 40%;
   }
 
   .container .etoiles{
-    top: -50px;
-    right: -50px;
+    top: 75px;
+    right: 50px;
   }
   
   .container .coeur{
@@ -410,9 +475,14 @@ form textarea{
 
   .box .faq .svg svg {
     width: 10%;
-    bottom: 50px;
-    right: 150px;
+    top: -50px;
+    right: 50px;
     position: absolute;
+  }
+
+  .box .faq .question div .arrow svg{
+    width: 20px;
+
   }
 }
 

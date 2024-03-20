@@ -154,37 +154,37 @@ p{
 
 
 .articles .right{
-    display: flex;
-    flex-direction: row;
-    width: 30vw;
-    height: clamp(300px, 50vh, 500px);
-}
+        display: flex;
+        flex-direction: row;
+        width: 30vw;
+        height: clamp(300px, 50vh, 500px);
+    }
 
 .articles .right .left{
-    background-color: var(--color-text);
-    min-height: 30%;
-}
+        background-color: var(--color-text);
+        min-height: 30%;
+    }
 
 .articles .right .right{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 70%;
-    background-color: var(--bg-color-secondary);
-    padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 70%;
+        background-color: var(--bg-color-secondary);
+        padding: 2rem;
 
-}
+    }
 
 .articles .right .right .icon {
-    display: flex;
-    justify-content: flex-end; 
-    width: 100%; 
-}
+        display: flex;
+        justify-content: flex-end; 
+        width: 100%; 
+    }
 
 .articles .right .right .icon img {
-    width: 35px; 
-}
+        width: 35px; 
+    }
 
 .buttonDeMort {
     margin-top: -90px; /* Marge supérieure pour séparer du contenu précédent */
