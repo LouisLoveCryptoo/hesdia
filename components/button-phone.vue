@@ -23,6 +23,7 @@ a .phone {
   background-color: var(--color-orange-dark);
 }
 
+
 </style>
 
 <template>

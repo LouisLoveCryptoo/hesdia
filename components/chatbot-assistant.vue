@@ -277,10 +277,11 @@ aside.active.full-screen svg {
 }
 
 button.chatbot__open {
+  position: fixed;
+
   z-index: 20;
   background: #d9d9d9;
   padding: 10px;
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;

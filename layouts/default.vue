@@ -44,7 +44,7 @@
 body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
-  background-color: var(--background-color-secondary);
+  background-color: var(--bg-color-secondary);
 }
 
 hr {

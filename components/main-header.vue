@@ -26,6 +26,7 @@ nav a {
 nav a:last-child {
   color: var(--bg-color-secondary);
 }
+
 </style>
 
 <template>
@@ -35,7 +36,7 @@ nav a:last-child {
     </div>
 
     <nav>
-      <nuxt-link to="">Besoin d'aide ?</nuxt-link>
+      <nuxt-link to="/besoinAide">Besoin d'aide ?</nuxt-link>
       <nuxt-link to="/">Médias</nuxt-link>
 
       <button-arrow path="/play">
