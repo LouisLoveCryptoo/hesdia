@@ -52,6 +52,29 @@ hr {
   border: none;
 }
 
+h1 {
+  font-size: var(--fs-title);
+}
+
+h2{
+  font-size: var(--fs-subtitle);
+
+}
+
+h3{
+  font-size: var(--fs-subsubtitle);
+  font-weight: 400;
+}
+
+h4{
+  font-size: var(--fs-ptitext);
+  font-weight: 600;
+}
+
+p{
+  font-size: var(--fs-text);
+}
+
 button {
   background: none;
   border: none;
@@ -73,11 +96,12 @@ a {
 
   --padding-box: 2rem;
 
-  --fs-title: 3rem;
+  --fs-title: 3.8rem;
   --fs-subtitle: 2rem;
   --fs-subsubtitle: 1.8rem;
   --fs-button: 1.5rem;
-  --fs-text: 1rem;
+  --fs-text: 1.5rem;
+  --fs-ptitext: 1rem;
 
   --ms-tablet: 1200px;
   --ms-phone: 800px;
@@ -91,7 +115,13 @@ a {
   }
 }
 
-h1 {
-  font-size: var(--fs-title);
+
+
+@media screen and (max-width: var(--ms-tablet)) {
+  :root {
+    --fs-title:2.5rem;
+  }
 }
+
+
 </style>

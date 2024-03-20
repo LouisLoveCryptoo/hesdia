@@ -4,7 +4,11 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem var(--sides-padding);
+  position: fixed;
+  width: 100vw;
+  z-index: 20;
 }
+
 
 nav {
   display: flex;
@@ -16,6 +20,7 @@ nav a {
   color: var(--color-text);
   font-weight: 600;
   text-decoration: none;
+  font-size: var(--fs-ptitext);
 }
 
 nav a:last-child {
