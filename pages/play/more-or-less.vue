@@ -31,7 +31,7 @@
     </div>
     <div class="progress__bar">
       <span
-        v-for="index in (pairPlayData.length)"
+        v-for="index in pairPlayData.length"
         :key="index"
         :class="{ active: index <= response.currentId }"
       ></span>
@@ -63,6 +63,7 @@ const response = reactive({
  * @returns {void}
  */
 const pairPlayData = computed(() => {
+  if (playData.value.length === 0) return [];
   return playData?.value.filter((_, index) => index % 2 === 0);
 });
 
@@ -165,7 +166,7 @@ const nextSlide = () => {
   background: cadetblue;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 
 .progress__bar span.active {

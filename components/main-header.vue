@@ -44,7 +44,7 @@ nav a:last-child {
   height: 2px;
   border-radius: 10px;
   background-color: var(--bg-color-secondary);
-  transition: width 0.3s ease, transform 0.3s ease 0.4s, opacity 0.3s ease 0.4s;
+  transition: width 0.3s var(--cubic-smooth-out), transform 0.3s var(--cubic-smooth-out) 0.4s, opacity 0.3s var(--cubic-smooth-out) 0.4s;
 }
 
 .hbg span:nth-child(2) {
@@ -97,6 +97,7 @@ header.active nav a {
     transition: transform 0.3s ease-out;
   }
   nav a {
+    font-size: var(--fs-button);
     opacity: 0;
     transform: translateX(-20px);
     transition: opacity 0.3s ease-out 0.4s, transform 0.3s ease 0.4s;
@@ -111,13 +112,18 @@ header.active nav a {
     transition-delay: 600ms;
   }
 }
+
+.scroll {
+  transition: background .3s ease;
+  background: var(--bg-color-secondary);
+}
 </style>
 
 <template>
-  <header :class="active ? 'active' : ''">
-    <div class="logo">
+  <header :class="{'active': active, 'scroll': scroll}">
+    <nuxt-link to="/"class="logo">
       <img src="../assets/img/logo.svg" alt="" />
-    </div>
+    </nuxt-link>
 
     <nav>
       <nuxt-link to="/besoin-aide">Besoin d'aide ?</nuxt-link>
@@ -134,4 +140,20 @@ header.active nav a {
 </template>
 <script setup>
 const active = ref(false);
+const scroll = ref(false);
+
+const router = useRouter();
+
+router.afterEach(() => {
+  active.value = false;
+});
+
+onMounted(() => {
+  document.addEventListener('wheel', (e) => {
+    if (e.deltaY > 0) {
+      active.value = false;
+    }
+    e.clientY > 10 ? scroll.value = true : scroll.value = false;
+  })
+})
 </script>
