@@ -57,23 +57,18 @@ h1 {
   font-size: var(--fs-title);
 }
 
-h2{
+h2 {
   font-size: var(--fs-subtitle);
-
 }
 
-h3{
+h3 {
   font-size: var(--fs-subsubtitle);
   font-weight: 400;
 }
 
-h4{
+h4 {
   font-size: var(--fs-ptitext);
   font-weight: 600;
-}
-
-p{
-  font-size: var(--fs-text);
 }
 
 button {
@@ -108,6 +103,13 @@ a {
   --ms-phone: 800px;
 
   --sides-padding: clamp(1rem, 5vw, 4rem);
+
+  --chatbot-color-white: #f9eee8;
+  --chatbot-color-grey: #d9d9d9;
+  --chatbot-color-blue: #b0c2cc;
+  --chatbot-color-text: #1e1e1e;
+  --chatbot-padding-sides: 1.8rem;
+  --chatbot-fs: 0.8rem;
 }
 
 @media screen and (max-width: var(--ms-tablet)) {
@@ -116,13 +118,9 @@ a {
   }
 }
 
-
-
 @media screen and (max-width: var(--ms-tablet)) {
   :root {
-    --fs-title:2.5rem;
+    --fs-title: 2.5rem;
   }
 }
-
-
 </style>

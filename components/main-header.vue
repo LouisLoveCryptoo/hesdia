@@ -68,6 +68,7 @@ header.active .hbg span:nth-child(3) {
 }
 
 header.active nav {
+  opacity: 1;
   transform: translateY(0);
 }
 
@@ -88,12 +89,13 @@ header.active nav a {
     justify-content: center;
     gap: 1rem;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0%;
+    left: 0%;
     width: 100%;
     height: 100vh;
     background-color: var(--color-orange-dark);
     transform: translateY(-100%);
+    opacity: 0;
     transition: transform 0.3s ease-out;
   }
   nav a {

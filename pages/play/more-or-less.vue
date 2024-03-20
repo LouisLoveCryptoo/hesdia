@@ -63,7 +63,7 @@ const response = reactive({
  * @returns {void}
  */
 const pairPlayData = computed(() => {
-  if (playData.value.length === 0) return [];
+  if (playData.value == null) return [];
   return playData?.value.filter((_, index) => index % 2 === 0);
 });
 
