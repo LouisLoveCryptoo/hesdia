@@ -20,7 +20,6 @@ Ton objectif est de créer un espace accueillant et sécurisant pour les utilisa
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
-  console.log(body);
 
   const openai = new OpenAI({
     apiKey: "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",
@@ -34,7 +33,6 @@ export default defineEventHandler(async (event) => {
       ],
       model: "gpt-3.5-turbo",
     });
-    console.log(preprompt + JSON.stringify(body.history));
     const res = gpt.choices[0].message.content;
     return { content: res, from: 0 };
   } catch (error) {

@@ -6,5 +6,10 @@ export default defineNuxtConfig({
     timeline: {
       enabled: true
     }
+  },
+  nitro: {
+    experimental: {
+      websocket: true,
+    }
   }
 })
