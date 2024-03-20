@@ -100,7 +100,7 @@
   
 </template>
 
-<style>
+<style scoped>
 
 .container h1, h3, p{
   color: var(--color-text);

@@ -1,3 +1,5 @@
+
+import doubleTrukContainer from '~/components/doubleTrukContainer.vue';
 <template>
 <div class="homeContainer">
   <div class="text">
@@ -29,6 +31,10 @@
 </div>
   
 <LesNouveauxCommercants />
+<ArticlesContainer />
+<vingtSeptContainer />
+<doubleTrukContainer />
+<SoloTrukContainer />
 
 </template>
 
