@@ -91,6 +91,7 @@ a {
   --color-orange-light: #ffa750;
   --color-text: #353838;
 
+<<<<<<< Updated upstream
   --bg-color-main: #e5d1bd;
   --bg-color-secondary: #f9eee8;
 
@@ -107,6 +108,31 @@ a {
   --ms-phone: 800px;
 
   --sides-padding: clamp(1rem, 5vw, 4rem);
+=======
+  --background-color-main:#E5D1BD;
+  --background-color-secondary:#F9EEE8;
+
+  --padding-box:2rem;
+
+  --fs-title:3rem;
+  --fs-subtitle:2rem;
+  --fs-subsubtitle:1.8rem;
+  --fs-button:1.5rem;
+  --fs-text:1rem;
+
+  --ms-tablet:1200px;
+  --ms-phone:800px;
+}
+
+@media screen and (max-width: var(--ms-tablet)) {
+  :root {
+    --fs-title:2.5rem;
+  }
+}
+
+h1 {
+  font-size: var(--fs-title);
+>>>>>>> Stashed changes
 }
 
 @media screen and (max-width: var(--ms-tablet)) {
