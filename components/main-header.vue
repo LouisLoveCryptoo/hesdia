@@ -4,9 +4,9 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem var(--sides-padding);
+  z-index: 1000;
   position: fixed;
   width: 100vw;
-  z-index: 20;
 }
 
 
