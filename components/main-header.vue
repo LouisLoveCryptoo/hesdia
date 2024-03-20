@@ -129,7 +129,7 @@ header.active nav a {
 
     <nav>
       <nuxt-link to="/besoin-aide">Besoin d'aide ?</nuxt-link>
-      <nuxt-link to="/">Médias</nuxt-link>
+      <nuxt-link to="/medias">Médias</nuxt-link>
 
       <button-phone path="/play"> Jouer </button-phone>
     </nav>
