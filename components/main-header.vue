@@ -4,9 +4,15 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem var(--sides-padding);
+<<<<<<< Updated upstream
   position: fixed;
   width: 100vw;
   z-index: 20;
+=======
+  z-index: 1000;
+  position: fixed;
+  width: 100vw;
+>>>>>>> Stashed changes
 }
 
 

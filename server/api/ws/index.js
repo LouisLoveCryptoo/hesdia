@@ -24,14 +24,19 @@ export default defineWebSocketHandler({
       room,
       JSON.stringify({
         pseudo: "Server",
-        content: `${peer.pseudo} left the room`,
+        content: `${peer} left the room`,
         color: "red",
       })
     );
   },
   message(peer, data) {
-    const parsedData = JSON.parse(data);
-    if(parsedData.content = '') return;
+    let parsedData;
+    try {
+      parsedData = JSON.parse(data);
+    } catch (error) {
+      console.error("Invalid JSON:", data);
+      return;
+    }
     peer.publish(
       room,
       JSON.stringify({
