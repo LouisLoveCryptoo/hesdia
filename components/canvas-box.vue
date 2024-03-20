@@ -31,8 +31,6 @@ const { status, data, send, open, closed } = useWebSocket(
   `ws://${location.host}/api/ws/canvas`
 );
 
-let lastPoint = null;
-
 const state = reactive({
   ctx: null,
   colors: ["#2185C5", "#7ECEFD", "#FFF6E5", "#FF7F66"],
@@ -56,11 +54,9 @@ watch(data, (newData) => {
   const parsedData = JSON.parse(newData);
   drawFromData(parsedData);
 });
-
 const changeWidth = () => {
   state.ctx.lineWidth = state.lineWidth;
 };
-
 const startPainting = (e) => {
   state.painting = true;
   currentId++;
@@ -80,9 +76,8 @@ const finishedPainting = () => {
   state.ctx.beginPath();
   lastPoint = null;
 };
-
+let lastPoint = null;
 let currentId = 0;
-
 const draw = (e) => {
   if (!state.painting) return;
   state.ctx.lineWidth = state.lineWidth;
@@ -96,6 +91,12 @@ const draw = (e) => {
   };
 
   if (lastPoint) {
+    // Dessinez une ligne entre le dernier point et le point actuel
+    state.ctx.beginPath();
+    state.ctx.moveTo(lastPoint.x, lastPoint.y);
+    state.ctx.lineTo(currentPoint.x, currentPoint.y);
+    state.ctx.stroke();
+
     send(
       JSON.stringify({
         id: currentId,
