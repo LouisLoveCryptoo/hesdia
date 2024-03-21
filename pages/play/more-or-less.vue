@@ -6,10 +6,6 @@
         v-for="(play, index) in pairPlayData"
         :key="index"
       >
-        <div class="play__buttons" v-if="!response.show">
-          <button @click="gameResponse(1, play.id)">+</button>
-          <button @click="gameResponse(0, play.id)">-</button>
-        </div>
         <article
           class="play__card"
           v-for="(el, indexCard) in playData.slice(play.id - 1, play.id + 1)"
@@ -20,7 +16,16 @@
           <p v-if="response.show || indexCard % 2 === 0">
             {{ el.content }}
           </p>
+
+          <div
+            class="play__buttons"
+            v-if="response.show || indexCard % 2 !== 0"
+          >
+            <button @click="gameResponse(1, play.id)">+</button>
+            <button @click="gameResponse(0, play.id)">-</button>
+          </div>
         </article>
+        <div class="play__content-versus">VS</div>
         <div class="play__response" v-if="response.show">
           <span :class="response.isCorrect ? 'correct' : 'wrong'">
             {{ response.desc }}
@@ -129,7 +134,7 @@ const nextSlide = () => {
 .play__container {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
   padding: 2rem;
   gap: 20px;
   border: 1px solid #000;
@@ -142,6 +147,21 @@ const nextSlide = () => {
   flex-direction: column;
   gap: 10px;
   align-items: center;
+}
+
+.play__content-versus {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: var(--bg-color-secondary);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-orange-dark);
+  padding: 15px;
+  border-radius: 50%;
+  z-index: 11;
+  box-shadow: 4px 4px 0 1px var(--color-orange-light);
 }
 
 .correct {

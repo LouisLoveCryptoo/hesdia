@@ -40,7 +40,7 @@
 .container .choix div {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   padding:7% 2%;
   background-color: var(--bg-color-main);
   border-radius: 15px;
@@ -80,7 +80,7 @@
   align-items: left;
   gap:20px;
   margin-top: 50px;
-  
+
 
 }
 
@@ -94,7 +94,7 @@
 .answer_choix div {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   padding:7% 2%;
   background-color: var(--bg-color-main);
   border-radius: 15px;
@@ -121,7 +121,7 @@
 
 .choice_container div {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   padding:2% 2%;
   background-color: var(--bg-color-main);
   border-radius: 15px;
@@ -173,7 +173,7 @@
           }}
         </p>
         <button @click="choice_id = 2">CHOISIR</button>
-      </div> 
+      </div>
       <div>
         <p v-if="playData && playData.length > 0">
           {{
@@ -181,38 +181,38 @@
           }}
         </p>
         <button @click="choice_id = 3">CHOISIR</button>
-      </div>  
+      </div>
     </div>
   </div>
 
   <div class="choice_container" v-if="choice_id">
-    
+
     <div>
       <h4>
-        Tu as choisis : 
+        Tu as choisis :
         {{
           playData[id - 1].context.answers[answer_id - 1].content
-        }}. 
+        }}.
       </h4>
       <h4>
-        Puis 
+        Puis
         {{
           playData[id - 1].context.answers[answer_id - 1].next_question.context.answers[choice_id - 1].content
-        }}. 
-      </h4> 
+        }}.
+      </h4>
       <h4>
-        Voici ce qu tu obtiens 
+        Voici ce qu tu obtiens
         {{
           playData[id - 1].context.answers[answer_id - 1].next_question.context.answers[choice_id - 1].next_question.conclusion
         }}
-      </h4> 
+      </h4>
     </div>
 
     <button @click="answer_id = null; choice_id = null">Recommencer</button>
-  
+
   </div>
 
-<div class="container" v-if="!answer_id">
+<div class="container" v-if="!answer_id && playData">
       <h1>
         {{ playData[id - 1].title }}
       </h1>
@@ -236,7 +236,7 @@
         }}
       </p>
       <button @click="answer_id = 2">CHOISIR</button>
-    </div> 
+    </div>
     <div>
       <p v-if="playData && playData.length > 0">
         {{
@@ -244,10 +244,10 @@
         }}
       </p>
       <button @click="answer_id = 3">CHOISIR</button>
-    </div>  
+    </div>
   </div>
 </div>
-  
+
 </div>
 <svg width="241" height="254" viewBox="0 0 241 254" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M-12.0469 76.3676L13.5412 183.798C13.5412 183.798 26.0527 196.977 26.0678 180.343C26.0932 161.378 8.73076 117.543 4.26734 84.8563C2.44105 71.4934 0.521417 56.0292 7.81077 39.0136C9.87416 34.2056 17.4008 16.6206 35.9085 7.71133C65.3978 -6.48935 96.1189 14.1366 97.6245 15.1861C97.6245 15.1861 113.944 31.5305 117.225 48.8934C120.498 66.2559 131.209 95.0956 131.209 95.0956C131.209 95.0956 133.628 103.051 160.208 96.1904L173.133 138.416C173.133 138.416 129.182 157.017 113.352 143.721C97.5215 130.417 79.1695 111.881 77.8302 83.1014C76.4996 54.3224 60.9929 56.4562 60.9929 56.4562C60.9929 56.4562 42.6741 53.0454 53.7187 88.8467C64.7633 124.648 88.173 201.748 63.6447 226.538C39.1167 251.319 19.1018 244.814 19.1018 244.814C19.1018 244.814 -8.94846 242.849 -17.5317 221.652C-26.1063 200.455 -12.0473 76.3762 -12.0473 76.3762L-12.0469 76.3676Z" fill="#FFA750"/>
@@ -261,11 +261,11 @@
   <path d="M196.621 131.551C197.372 127.893 193.03 124.251 190.231 121.78C187.433 119.309 183.877 117.906 180.406 116.549" fill="#FFA750"/>
   <path d="M196.621 131.551C197.372 127.893 193.03 124.251 190.231 121.78C187.433 119.309 183.877 117.906 180.406 116.549" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
   </svg>
-  
+
 
 </div>
 </template>
-  
+
   <script setup>
   const route = useRoute();
   const id = ref(route.params.id);
@@ -274,8 +274,7 @@
   //   console.log(id.value, answer_id.value)
   const {data: playData} = useFetch("/api/play/conv-simulator");
   console.log(playData.value)
-  
-  
+
+
 
   </script>
-  

@@ -1,5 +1,5 @@
 <template>
-  <div class="wordGuessContainer">
+  <div v-if="playData" class="wordGuessContainer">
     <div class="title">
       <h2>Trouve le bon mot !</h2>
     </div>
@@ -25,9 +25,9 @@
       <button type="submit">Valider</button>
     </form>
 
-    <div class="game-info"> 
-      
-      <button 
+    <div class="game-info">
+
+      <button
       :class="{ 'button-active': aideCount <= 0, 'button-inactive': aideCount > 0 }"
       :disabled="aideCount > 0"
       @click="showHint">
@@ -36,7 +36,7 @@
 
 
       <button @click="playAgain">Play Again</button>
-      
+
       <p>Nombre d'échecs : {{ failureCount }}</p>
     </div>
 
@@ -90,7 +90,7 @@
 
 .input-area, .lettres, .motTrouve, .game-info {
   width: 100%;
-  max-width: 600px; 
+  max-width: 600px;
   margin: 10px 0;
 }
 
@@ -159,24 +159,24 @@ button {
 }
 
 .button-inactive {
-  background-color: #ccc; 
+  background-color: #ccc;
   color: #666;
-  cursor: not-allowed; 
+  cursor: not-allowed;
 }
 
 .button-active {
-  background-color: var(--color-orange-dark); 
-  color: white; 
+  background-color: var(--color-orange-dark);
+  color: white;
   cursor: pointer;
 }
 
 .button-inactive:hover, .button-active:hover {
-  background-color: var(--color-orange-light); 
+  background-color: var(--color-orange-light);
 }
 
 .resulat{
   padding-top: 20px;
-  min-height: 50px; 
+  min-height: 50px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -196,7 +196,7 @@ button {
 
 .wordGuessContainer img.interrogationPOINT{
   position: absolute  ;
-  right: 50px; 
+  right: 50px;
   z-index: -1;
 }
 </style>
@@ -207,25 +207,25 @@ button {
   const greenLetters = ref([]);
   const answer = ref('');
   const status = ref('');
-  const currentId = ref(0); 
+  const currentId = ref(0);
   let failureCount = ref(0);
   const guessedLetter = ref('');
   const aideCount = ref(5);
-  
+
   /**
  * Parcourt chaque lettre du mot à deviner, si la lettre rentré dans le input="Text" et que celle ci n'est pas déjà dans la li "greenLetters" alors elle ajoute le mot
  * @return void
  */
   const consoleLogText = () => {
     const wordToGuess = playData.value[currentId.value].word;
-  
+
     for (const letter of wordToGuess) {
       if (text.value.includes(letter) && !greenLetters.value.includes(letter)) {
         greenLetters.value.push(letter);
       }
     }
   };
-  
+
     /**
  * Intercepte les touches pressées pour filtrer uniquement les lettres de l'alphabet et mettre à jour le texte entré
  * @return void
@@ -235,10 +235,10 @@ button {
     if (/^[a-z]$/.test(key)) {
       text.value = key;
       consoleLogText();
-      event.preventDefault(); 
+      event.preventDefault();
     }
   };
-  
+
   /**
  * Vérifie si la réponse correspond au mot à deviner et met à jour le statut Success Ou Failure
  * @return void
@@ -256,7 +256,7 @@ button {
 };
 
 /**
- * Affiche le mot à deviner 
+ * Affiche le mot à deviner
  */
 const showHint = () => {
     if (guessedLetter.value.length < playData.value[currentId.value].word.length) {
@@ -274,12 +274,12 @@ const showHint = () => {
     text.value = '';
     greenLetters.value = [];
     answer.value = '';
-    status.value = '';    
+    status.value = '';
     failureCount.value = 0;
     guessedLetter.value = '';
 
   };
-  
+
     /**
  * Passe au mot suivant en mettant à jour l'id et réinitialise les valeurs
  * @return void
@@ -288,8 +288,7 @@ const showHint = () => {
     currentId.value++;
     failureCount.value = 0;
     guessedLetter.value = '';
-    aideCount.value = 5; 
+    aideCount.value = 5;
     playAgain();
   };
   </script>
-  
