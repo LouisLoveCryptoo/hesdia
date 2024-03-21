@@ -86,6 +86,88 @@ export default defineEventHandler((event) => {
           }
         ],
       },
+      {
+        id: 2,
+        title: "Une connexion plus sûre : Se protéger contre le cyberharcèlement",
+        date: "21/03/2024",
+        author: "ALSAADI Ahmad",
+        img: "/api/files/article-2.png",
+        content: [
+          {
+            type: "text",
+            content: "Naviguer sur internet expose aux risques de cyberharcèlement, nécessitant la sécurisation des interactions, des SMS/Appels aux Webcams. Comprendre et appliquer des mesures de protection pour chaque outil numérique est essentiel pour se prémunir contre le cyberharcèlement. Ces conseils visent à renforcer la sécurité dans l'univers connecté."
+          },
+          {
+            type: "subtitle",
+            content: "SMS/Appels : Protège-toi contre le Cyberharcèlement"
+          },
+          {
+            type: "text",
+            content: "Le cyberharcèlement peut commencer par des SMS et appels non désirés. Protège-toi en vérifiant toujours qui tente de te contacter et en utilisant des applications qui offrent un chiffrement de bout en bout pour tes conversations, réduisant ainsi le risque de cyberharcèlement."
+          },
+          {
+            type: "subtitle",
+            content: "Applications : Une Frontière contre le Cyberharcèlement"
+          },
+          {
+            type: "text",
+            content: "Les applications sont souvent utilisées pour faire le cyberharcèlement. Assure-toi de contrôler les permissions accordées et de maintenir tes applications à jour pour éviter les failles de sécurité qui pourraient être exploitées pour le cyberharcèlement."
+          },
+          {
+            type: "subtitle",
+            content: "Passwords : Barrières contre le Cyberharcèlement"
+          },
+          {
+            type: "text",
+            content: "Des mots de passe forts et uniques pour chaque compte en ligne sont essentiels pour te protéger contre le cyberharcèlement, en empêchant les accès non autorisés à tes informations personnelles et comptes sociaux."
+          },
+
+          {
+            type: "subtitle",
+            content: "Social Media : Navigue sans Cyberharcèlement"
+          },
+          {
+            type: "text",
+            content: "Les réseaux sociaux peuvent devenir des terrains propices au cyberharcèlement. Utilise les paramètres de confidentialité pour contrôler qui voit et interagit avec tes publications, une mesure préventive clé contre le cyberharcèlement."
+          },
+          {
+            type: "subtitle",
+            content: "Email : Un Rempart contre le Cyberharcèlement"
+          },
+          {
+            type: "text",
+            content: "Les emails sont un moyen fréquemment utilisé pour le cyberharcèlement via des tentatives de phishing: (le phishing est une technique de fraude visant à obtenir des informations confidentielles comme des mots de passe ou des données bancaires, en se faisant passer pour une entité de confiance via des communications électroniques). Reste vigilant et n'interagit pas avec des messages suspects pour réduire le risque de cyberharcèlement."
+          },
+          {
+            type: "subtitle",
+            content: "Online Chatting : Espaces Sûrs loin du Cyberharcèlement"
+          },
+          {
+            type: "text",
+            content: "La discussion en ligne offre des moyens instantanés de communication qui peuvent malheureusement être utilisés pour le cyberharcèlement. Privilégie des plateformes réputées pour leur sécurité et reste prudent dans le partage d'informations personnelles pour te protéger du cyberharcèlement."
+          },
+          {
+            type: "subtitle",
+            content: "Webcams : Protège ta Vie Privée et Évite le Cyberharcèlement"
+          },
+          {
+            type: "text",
+            content: "Les webcams peuvent être détournées dans le cadre de cyberharcèlement. Couvrir ta webcam quand elle n'est pas utilisée et faire preuve de prudence lors de son utilisation sont des gestes simples mais efficaces pour prévenir le cyberharcèlement."
+          },
+          {
+            type: "text",
+            content: "En suivant ces conseils de sécurité, tu aideras à faire d'Internet un endroit plus sûr pour toi et diminueras les chances de rencontrer du cyberharcèlement. Prends soin de toi et de tes informations personnelles."
+          },
+          {
+            type: "text",
+            content: "Voici un témoignage : https://www.ouest-france.fr/bretagne/lamballe-armor-22400/lamballe-jai-16-ans-et-jai -ete-victime-de-cyberharcelement-3957086"
+          },
+          {
+            type: "keyword",
+            content: ['messages', 'négatifs', 'commentaires', 'réseaux-sociaux', 'victimes', 'signaler', 'lois', 'soutien', 'adulte', 'sécurité', 'respecté', 'guide', 'cyberharcelement', 'témoignage']
+          }
+        ],
+      },
     ],
   };
 });
