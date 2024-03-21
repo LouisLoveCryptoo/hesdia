@@ -32,7 +32,9 @@
 background-color: var(--bg-color-main);
 position: relative;
 height: 250px;
-width: 450px;
+width: clamp(300px, 100%, 450px);
+overflow: hidden;
+
 }
 
 .article .image img{
@@ -71,6 +73,13 @@ z-index: 10;
 }
 
 
+@media screen and (max-width: 1200px) {
+    .article .text{
+        top: 0%;
+    }
+}
+@media screen and (max-width: 800px) {
+}
 
 
 </style>

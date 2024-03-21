@@ -208,8 +208,8 @@
       </h4>
     </div>
 
-    <button @click="answer_id = null; choice_id = null">Recommencer</button>
-
+    <button @click="$router.push('/play')">Recommencer</button>
+  
   </div>
 
 <div class="container" v-if="!answer_id && playData">

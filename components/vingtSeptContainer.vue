@@ -28,8 +28,24 @@
     gap: 2rem;
 }
 
-.imgVingtSept{
 
+@media screen and (max-width: 1200px) {
+    .vingtSept{
+        flex-direction: column;
+
+    }
+    .imgVingtSept img{
+        width: 40%;
+    }
 }
+@media screen and (max-width: 800px) {
+    .vingtSept{
+        flex-direction: column;
+    }
+    .imgVingtSept img{
+        width: 60%;
+    }
+}
+
 
 </style>

@@ -55,6 +55,21 @@
     gap: 25px;
 }
 
+@media screen and (max-width: 1200px) {
+ .soixante-dix-trenteContainer{
+    flex-direction: column;
+ }
+ .soixante-dix-trenteContainer .soixante-dix-trenteLeft{
+    align-items: center;    
+    width: 100%;
+ }
+ .soixante-dix-trenteContainer .soixante-dix-trenteRight{
+    align-items: center;
+    width: 100%;
+ }
+}
+@media screen and (max-width: 800px) {
 
+}
 
 </style>
