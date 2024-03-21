@@ -19,30 +19,23 @@
   <div class="nouveauxArticles">
       <div class="gauche">
         <articlePhoto />
-        <articleText /> 
+        <articleText />
       </div>
 
       <div class="droite">
         <ArticleText />
         <articlePhotoLeft />
       </div>
-  
+
     <button>
       Voir toutes les actualités
     </button>
 
   </div>
 
-  <div class="motion">
-    <img src="https://picsum.photos/200/300" alt="">
-    <div class="infos">
-      <h2>C’est quoi le cyber-harcèlement</h2>
-      <p>Découvre en 2 minutes c’est quoi le cyber-harcèlement et comment lutter contre.</p>
-      <button-phone path="/#" :phone="false">
-        Voir plus
-      </button-phone>
-    </div>
-  </div>
+ <div class="les-nouveaux-commerçants__container">
+  <lesNouveauxCommercants />
+ </div>
 
   <div class="itw">
     <h2>Nos interviews et témoignages </h2>
@@ -51,7 +44,7 @@
       <path d="M72.2201 34.5611C60.0754 37.7953 43.218 46.841 29.1886 71.2471C28.3239 72.753 29.4828 74.6155 31.2122 74.4914C41.9773 73.707 71.9486 69.7187 83.6947 49.3946C88.2023 41.5971 80.923 32.2496 72.2201 34.5611Z" fill="#FF8800"/>
       <path d="M92.8035 78.6818C80.6472 75.5077 61.5158 75.0619 37.2801 89.3775C35.7844 90.2612 35.8751 92.4531 37.4458 93.1942C47.1934 97.818 75.241 109.132 95.4785 97.2424C103.243 92.6801 101.522 80.955 92.8095 78.6839L92.8035 78.6818Z" fill="#FF8800"/>
       </svg>
-      
+
     <div class="interview">
       <interview />
       <interview />
@@ -59,27 +52,23 @@
     </div>
   </div>
 
-  
-    
-  
 
 
-  
-    
 
 
-  
+
+
+
+
+
+
 </template>
 
-<script>
-
-
-
-
-
-</script>
-
 <style scoped>
+.les-nouveaux-commerçants__container{
+  margin-top: 100px;
+}
+
 .container{
   position: relative;
   height: 90vh;
@@ -130,7 +119,7 @@
   justify-content: center;
   align-items: center;
   padding-left:15%;
-  
+
 }
 
 .nouveauxArticles .gauche{
@@ -284,7 +273,7 @@
 }
 
 @media (max-width: 700px) {
-  
+
     .content{
       padding: 35% 0 0 0;
       display:flex;
@@ -293,30 +282,30 @@
       justify-content: space-between;
       align-items: left;
       margin: 0 10%;
-  
+
     }
     .content h1{
       font-size: 24px;
     }
-  
+
     .content h3{
       font-size: 20px;
     }
-  
+
     .bras{
       top: 200px;
       right: 0;
     }
-  
+
     .nouveauxArticles{
       display: flex;
       flex-direction: column;
       padding-left: 0;
       margin-top:-150px;
       gap:20px;
-      
+
     }
-  
+
     .itw svg{
       top: 10px;
       left: 550px;
