@@ -1,6 +1,6 @@
 <template>
 <div class="doubleTrukContainer">
-    <h2>Illustration</h2>
+    <img src="../assets/img/illustration.png" alt="">
 </div>
 </template>
 
@@ -15,4 +15,8 @@
     justify-content: center;
 }
 
+.doubleTrukContainer img{
+    width: 100%;
+    height: 100%;
+}
 </style>

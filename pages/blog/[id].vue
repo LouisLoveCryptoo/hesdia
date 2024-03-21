@@ -123,4 +123,8 @@ article img {
     border-radius: 5px;
     white-space: nowrap
 }
+
+p.content:last-child {
+  text-align: left;
+}
 </style>
