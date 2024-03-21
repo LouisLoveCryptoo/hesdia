@@ -23,11 +23,14 @@ a .phone {
   background-color: var(--color-orange-dark);
 }
 
-
+a.dark {
+  background: var(--color-orange-dark);
+  color: var(--bg-color-primary);
+}
 </style>
 
 <template>
-  <nuxt-link :to="props.path">
+  <nuxt-link :to="props.path" :class="props.dark ? 'dark' : ''">
     <h4>
       <slot />
     </h4>
@@ -38,14 +41,21 @@ a .phone {
   </nuxt-link>
 </template>
 <script setup>
+/**
+ * @type {import('vue').DefineProps<{ path: StringConstructor; phone: BooleanConstructor; dark: BooleanConstructor; }>}
+ */
 const props = defineProps({
   path: {
     type: String,
-    required: true
+    required: true,
   },
   phone: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
+  dark: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>

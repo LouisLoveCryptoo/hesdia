@@ -115,6 +115,7 @@
         />
         <button @click="sendMessage(inputMess, 1)">
           <svg
+            class="send"
             width="26"
             height="19"
             viewBox="0 0 26 19"
@@ -175,13 +176,13 @@ aside * {
 
 aside.active.full-screen {
   width: 80vw;
-  height: 80vh;
+  height: 60vh;
   font-size: 1.1rem;
 }
 
 aside.active {
   min-width: 300px;
-  width: 25vw;
+  width: 27.5vw;
   height: 50vh;
   transform: scale(1);
 }
@@ -194,15 +195,15 @@ aside.active.full-screen {
 @media screen and (max-width: 800px) {
   aside.active {
     width: 90vw;
-    height: 70vh;
+    height: 60vh;
   }
   aside.active.full-screen {
     width: 90vw;
-    height: 90vh;
+    height: 70vh;
   }
 }
 
-aside.active.full-screen svg:not(.article__top):not(.logo) {
+aside.active.full-screen svg:not(.article__top):not(.logo):not(.send) {
   transform: rotate(180deg);
 }
 
@@ -243,7 +244,7 @@ aside.active.full-screen svg:not(.article__top):not(.logo) {
   display: flex;
   align-items: center;
   gap: 15px;
-  width: 60%;
+  width: 80%;
 }
 
 .chatbot__top div p {
