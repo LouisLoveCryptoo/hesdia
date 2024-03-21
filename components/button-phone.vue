@@ -6,11 +6,19 @@ a {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  border: none;
+  border: 5px solid var(--color-orange-light);
   border-radius: 50px;
   color: var(--bg-color-secondary);
   cursor: pointer;
   width: fit-content;
+}
+
+a:hover{
+  border: 5px solid var(--color-orange-dark);
+  background: var(--bg-color-secondary);
+  color: var(--color-orange-dark);
+  transition: all 0.3s ease;
+
 }
 
 a .phone {

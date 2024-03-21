@@ -26,6 +26,10 @@ nav a:last-child {
   color: var(--bg-color-secondary);
 }
 
+
+nav a:hover {
+  color: var(--color-orange-dark);
+}
 .hbg {
   display: none;
   flex-direction: column;

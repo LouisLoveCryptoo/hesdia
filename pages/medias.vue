@@ -20,11 +20,9 @@
         <articlePhotoLeft />
       </div>
 
-    <button>
-      <nuxt-link to='blog'>
+      <button-phone path="/blog" :phone="false">
         Voir toutes les actualités
-      </nuxt-link>
-    </button>
+      </button-phone>
 
   </div>
 
@@ -41,11 +39,15 @@
       </svg>
 
     <div class="interview">
-      <interview />
-      <interview />
-      <interview />
-    </div>
+      
+      <interview class="component" />
+      <interview class="component"/>
+      <interview class="component"/>
+      
   </div>
+
+  </div>
+
 
 
 
@@ -134,25 +136,6 @@
 
 
 
-.nouveauxArticles button{
-  height:40px;
-  padding: 0 2%;
-  background-color: var(--color-orange-dark);
-  color: var(--color-text);
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: ease 0.3s;
-
-
-}
-
-.nouveauxArticles button:hover{
-  background-color: var(--color-orange-light);
-  transition: ease 0.3s;
-}
 
 .motion{
   display: flex;
@@ -240,6 +223,9 @@
   height: auto;
 }
 
+  
+
+
 
 @media (max-width: 1200px) {
 
@@ -274,7 +260,17 @@
     gap:20px;
 
   }
+
+  .itw .interview{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-around;
+    margin-top:5%;
+  }
 }
+
+
 
 @media (max-width: 800px) {
 
@@ -317,5 +313,8 @@
       width: 10%;
       height: auto;
     }
+
+
+
 }
 </style>
