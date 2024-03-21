@@ -54,6 +54,7 @@ footer{
     width: 100vw;
     background-color: var(--bg-color-secondary);
     padding: var(--sides-padding);
+    overflow: hidden;
 }
 
 .center{
@@ -91,8 +92,8 @@ footer{
   }
   
   .logo-mail {
-    border-right: 1px solid black; /* couleur de la bordure adaptée à l'image */
-    padding-right: 10px; /* espace entre l'icône et la bordure */
+    border-right: 1px solid black;
+    padding-right: 10px; 
   }
 
   .logo-mail{
@@ -101,11 +102,11 @@ footer{
   }
   
   .input-mail {
-    border: none; /* retirer la bordure de l'input */
-    outline: none; /* retirer l'outline pour ne pas avoir de bordure lors du focus */
-    margin-left: 10px; /* espace entre l'icône et l'input */
-    font-size: 16px; /* ajuster la taille de la police au besoin */
-    width: 100%; /* l'input prend tout l'espace restant */
+    border: none; 
+    outline: none;
+    margin-left: 10px; 
+    font-size: 16px;
+    width: 100%; 
     background-color: transparent;
   }
 
@@ -116,9 +117,9 @@ footer{
   img.validation{
     min-width: 20px;
     min-height: 20px;
-    border-left: 1px solid black; /* Ajoute une bordure sur le côté gauche */
-    padding-left: 10px; /* Espace entre l'icône et le bord */
-    cursor: pointer; /* Change le curseur lors du survol de l'image */
+    border-left: 1px solid black;
+    padding-left: 10px;
+    cursor: pointer; 
   }
 
   .trucChiant{
@@ -131,4 +132,48 @@ footer{
     cursor: pointer;
   }
 
+    @media screen and (max-width: 1200px) {
+        footer{
+            flex-direction: column;
+            align-items: center; 
+            gap: 25px;
+        }
+
+        .right .mail{
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .right .trucChiant{
+            width: 100%;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        footer{
+            flex-direction: column;
+            align-items: center; 
+            gap: 25px;
+        }
+
+        .right .mail{
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .right .trucChiant{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    
 </style>

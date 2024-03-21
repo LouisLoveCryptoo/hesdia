@@ -66,7 +66,28 @@ p{
     align-items: center;
     justify-content: center;
     height: 50%;
-  }
+    margin-top: 1rem;
+}
 
+
+    @media screen and (max-width: 1200px) {
+        .articlesContainer{
+            height: auto;
+
+        }
+        .articles{
+            flex-direction: column;
+        }
+    }
+    @media screen and (max-width: 800px) {
+        .articlesContainer{
+            height: auto;
+
+        }
+        .articles{
+            flex-direction: column;
+        }
+    }
+    
 
 </style>

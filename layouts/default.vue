@@ -100,9 +100,6 @@ a {
   --fs-text: 1.5rem;
   --fs-ptitext: 1rem;
 
-  --ms-tablet: 1200px;
-  --ms-phone: 800px;
-
   --sides-padding: clamp(1rem, 5vw, 4rem);
 
   --chatbot-color-white: #f9eee8;
@@ -113,15 +110,30 @@ a {
   --chatbot-fs: 0.8rem;
 }
 
-@media screen and (max-width: var(--ms-tablet)) {
+@media screen and (max-width: 1200px) {
   :root {
-    --fs-title: 2.5rem;
+    --sides-padding: 1rem;
+
+
+    --fs-title: 3rem; 
+    --fs-subtitle: 1.6rem; 
+    --fs-subsubtitle: 1.4rem; 
+    --fs-button: 1.2rem;
+    --fs-text: 1.2rem; 
+    --fs-ptitext: 0.8rem;
   }
 }
 
-@media screen and (max-width: var(--ms-tablet)) {
+@media screen and (max-width: 800px) {
   :root {
-    --fs-title: 2.5rem;
+    --sides-padding: 1rem;
+
+    --fs-title: 2.4rem; 
+    --fs-subtitle: 1.5rem; 
+    --fs-subsubtitle: 1.2rem; 
+    --fs-button: 1.1rem;
+    --fs-text: 1.1rem; 
+    --fs-ptitext: 0.7rem; 
   }
 }
 </style>

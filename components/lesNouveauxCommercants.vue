@@ -21,6 +21,7 @@
     display: flex;
     flex-direction: row;
     height: 75vh;
+    overflow: hidden;
 }
 
 .left{
@@ -40,5 +41,27 @@
     padding: var(--sides-padding);
     background-color: var(--bg-color-main);
 
+}
+
+@media screen and (max-width: 1200px) {
+    .lesNouveauxCommercants{
+        width: 100%;
+        height:auto;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .lesNouveauxCommercants{
+        height:auto;
+        flex-direction: column;
+    }
+    .left{
+        width: 100%;
+    }
+    .right{
+        align-items: center;
+        width: 100%;
+    }
 }
 </style>

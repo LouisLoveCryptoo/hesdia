@@ -38,4 +38,32 @@
     width: 50vw;
 
 }
+
+
+@media screen and (max-width: 1200px) {
+    .doubleTrukContainer{
+        flex-direction: column;
+        height: auto;
+
+    }
+    .doubleTrukContainer .left{
+        width: 100%;
+    }
+    .doubleTrukContainer .right{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .doubleTrukContainer{
+        flex-direction: column;
+        height: auto;
+
+    }
+    .doubleTrukContainer .left{
+        width: 100%;
+    }
+    .doubleTrukContainer .right{
+        width: 100%;
+    }
+}
 </style>
