@@ -8,7 +8,7 @@
 
     <div class="input-area">
       <p>Lettres correctes :</p>
-      <input type="text" v-model="text" @input="consoleLogText()" @keydown="handleKeyDown($event)">
+      <input type="text" v-model="text" placeholder="Insérez des lettres" @input="consoleLogText()" @keydown="handleKeyDown($event)">
     </div>
 
     <div v-if="greenLetters.length > 0" class="lettres">
@@ -41,13 +41,13 @@
     </div>
 
     <div v-if="guessedLetter">
-      <p>Lettre devinée : {{ guessedLetter }}</p>
+      <p>Le mot était : {{ guessedLetter }}</p>
     </div>
 
     <div class="resulat">
       <div v-if="status === 'Success' || status === 'Failure'" class="resultat">
         <h2 v-if="status === 'Success'">GG! Tu l'as</h2>
-        <h2 v-else-if="status === 'Failure'">OH NO! Tu l'as pas</h2>
+        <h2 v-else-if="status === 'Failure'">OH NO! Tu l'as pas, réessaye</h2>
     </div>
     <button class="motsuivant" v-if="status === 'Success'" @click="nextWord">Mot suivant</button>
 
@@ -63,7 +63,7 @@
 <style scoped>
 .wordGuessContainer {
   padding: var(--sides-padding);
-  padding-top: 20px;
+  padding-top: 100px;
   height: 100vh;
   color: var(--color-text);
   display: flex;
@@ -178,9 +178,7 @@ button {
   padding-top: 20px;
   min-height: 50px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
 }
 
 .motsuivant{
@@ -199,6 +197,18 @@ button {
   right: 50px;
   z-index: -1;
 }
+
+@media screen and (max-width: 1200px) {
+  .wordGuessContainer img{
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  .wordGuessContainer img{
+    display: none;
+  }
+}
+
 </style>
 
 <script setup>

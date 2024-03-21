@@ -96,6 +96,29 @@
   height: auto;
   z-index: -1;
 }
+
+@media screen and (max-width: 1200px) {
+  .gamesContainer{
+    flex-direction: column;
+  }
+
+  .gameCard{
+    padding: 3rem;
+    width: auto;
+  }
+}
+@media screen and (max-width: 800px) {
+  .gamesContainer{
+    flex-direction: column;
+  }
+
+  .gameCard{
+    padding: 1rem;
+    width: auto;
+  }
+
+}
+
 </style>
 
 
