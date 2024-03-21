@@ -150,11 +150,17 @@ canvas {
   display: flex;
   justify-content: center;
   padding: 10px;
+<<<<<<< Updated upstream
   z-index: 2;
 }
 
 .color__container span {
   z-index: 2;
+=======
+}
+
+.color__container span {
+>>>>>>> Stashed changes
   width: 30px;
   height: 30px;
   border-radius: 50%;
