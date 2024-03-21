@@ -1,11 +1,19 @@
 <template>
   <canvas
     ref="canvas"
+  <canvas
+    ref="canvas"
     @mousedown="startPainting"
     @mouseup="finishedPainting"
     @mousemove="draw"
   ></canvas>
   <div class="color__container">
+    <span
+      v-for="(color, index) in state.colors"
+      :key="index"
+      @click="changeColor(index)"
+      :style="'background-color:' + color"
+    >
     <span
       v-for="(color, index) in state.colors"
       :key="index"
@@ -21,12 +29,26 @@
       v-model="state.lineWidth"
       @input="changeWidth()"
     />
+    <button @click="clearCanvas">Clear</button>
+    <input
+      type="range"
+      min="3"
+      max="10"
+      v-model="state.lineWidth"
+      @input="changeWidth()"
+    />
   </div>
 </template>
 
 <script setup>
 import { useWebSocket } from "@vueuse/core";
+import { useWebSocket } from "@vueuse/core";
 const canvas = ref(null);
+const { status, data, send, open, closed } = useWebSocket(
+  `ws://${location.host}/api/ws/canvas`
+);
+
+let lastPoint = null;
 const { status, data, send, open, closed } = useWebSocket(
   `ws://${location.host}/api/ws/canvas`
 );
@@ -70,12 +92,20 @@ const startPainting = (e) => {
   currentId++;
   draw(e);
 };
+  state.painting = true;
+  currentId++;
+  draw(e);
+};
 
 const changeColor = (i) => {
   state.ctx.strokeStyle = state.colors[i];
 };
+  state.ctx.strokeStyle = state.colors[i];
+};
 
 const clearCanvas = () => {
+  state.ctx.clearRect(0, 0, canvas.value.width, canvas.value.height);
+};
   state.ctx.clearRect(0, 0, canvas.value.width, canvas.value.height);
 };
 
@@ -86,6 +116,9 @@ const finishedPainting = () => {
 };
 let currentId = 0;
 const draw = (e) => {
+  if (!state.painting) return;
+  state.ctx.lineWidth = state.lineWidth;
+  state.ctx.lineCap = "round";
   if (!state.painting) return;
   state.ctx.lineWidth = state.lineWidth;
   state.ctx.lineCap = "round";
@@ -117,9 +150,13 @@ const draw = (e) => {
 
 onMounted(() => {
   state.ctx = canvas.value.getContext("2d");
+  state.ctx = canvas.value.getContext("2d");
 
   state.ctx.strokeStyle = state.colors[0];
+  state.ctx.strokeStyle = state.colors[0];
 
+  canvas.value.height = window.innerHeight;
+  canvas.value.width = window.innerWidth;
   canvas.value.height = window.innerHeight;
   canvas.value.width = window.innerWidth;
 
@@ -127,7 +164,14 @@ onMounted(() => {
     canvas.value.height = window.innerHeight;
     canvas.value.width = window.innerWidth;
   });
+  window.addEventListener("resize", () => {
+    canvas.value.height = window.innerHeight;
+    canvas.value.width = window.innerWidth;
+  });
 
+  canvas.value.addEventListener("mouseup", finishedPainting);
+  canvas.value.addEventListener("mousemove", draw);
+});
   canvas.value.addEventListener("mouseup", finishedPainting);
   canvas.value.addEventListener("mousemove", draw);
 });
