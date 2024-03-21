@@ -11,6 +11,19 @@ export default defineEventHandler((event) => {
             title: 'Jeu de carte',
             path: '/play/memory-game',
             desc: 'Jouez avec les cartes mémoires pour découvrir les différents gestes simples',
+        },
+        {
+            id: 3,
+            title: 'Simulateur',
+            path: '/play/conversation-simulator',
+            desc: 'Jouez avec les cartes mémoires pour découvrir les différents gestes simples',
+        },
+        {
+            id: 4,
+            title: 'Jeu de mots',
+            path: '/play/word-guess',
+            desc: 'Jouez avec les cartes mémoires pour découvrir les différents gestes simples',
         }
+
     ]
 })
