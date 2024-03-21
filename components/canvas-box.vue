@@ -30,6 +30,11 @@ const canvas = ref(null);
 const { status, data, send, open, closed } = useWebSocket(
   `ws://${location.host}/api/ws/canvas`
 );
+<<<<<<< Updated upstream
+=======
+
+let lastPoint = null;
+>>>>>>> Stashed changes
 
 const state = reactive({
   ctx: null,
@@ -37,6 +42,30 @@ const state = reactive({
   painting: false,
   lineWidth: 5,
 });
+<<<<<<< Updated upstream
+=======
+
+const drawFromData = (data) => {
+  const [point1, point2] = data.points;
+
+  state.ctx.strokeStyle = point1.color;
+  state.ctx.lineWidth = point1.width;
+  state.ctx.beginPath();
+  state.ctx.moveTo(point1.x, point1.y);
+  state.ctx.lineTo(point2.x, point2.y);
+  state.ctx.stroke();
+};
+
+watch(data, (newData) => {
+  console.log(newData); // Ajoutez cette ligne
+  const parsedData = JSON.parse(newData);
+  drawFromData(parsedData);
+});
+
+const changeWidth = () => {
+  state.ctx.lineWidth = state.lineWidth;
+};
+>>>>>>> Stashed changes
 
 const drawFromData = (data) => {
   const [point1, point2] = data.points;
@@ -76,8 +105,14 @@ const finishedPainting = () => {
   state.ctx.beginPath();
   lastPoint = null;
 };
+<<<<<<< Updated upstream
 let lastPoint = null;
 let currentId = 0;
+=======
+
+let currentId = 0;
+
+>>>>>>> Stashed changes
 const draw = (e) => {
   if (!state.painting) return;
   state.ctx.lineWidth = state.lineWidth;
@@ -89,6 +124,7 @@ const draw = (e) => {
     color: state.ctx.strokeStyle,
     width: state.ctx.lineWidth,
   };
+<<<<<<< Updated upstream
 
   if (lastPoint) {
     // Dessinez une ligne entre le dernier point et le point actuel
@@ -97,6 +133,10 @@ const draw = (e) => {
     state.ctx.lineTo(currentPoint.x, currentPoint.y);
     state.ctx.stroke();
 
+=======
+
+  if (lastPoint) {
+>>>>>>> Stashed changes
     send(
       JSON.stringify({
         id: currentId,
