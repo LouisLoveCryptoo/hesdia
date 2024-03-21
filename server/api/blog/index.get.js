@@ -277,6 +277,11 @@ export default defineEventHandler((event) => {
                 type: "text",
                 content: "Si vous êtes confrontés au cyberharcèlement, n'ayez pas peur de parler de ce que vous ressentez. Vous n'êtes pas seuls, et il y a toujours quelqu'un à qui vous pouvez parler. Et n'oubliez pas, ça va aller mieux, je vous le promets."
               },
+              {
+                "type": "keyword",
+                "content": ["Cyberharcèlement","Témoignage","Commentaires","Rumeurs","Replidesoi","Famille","Libérerlaparole","Réseauxsociaux"]
+              }
+              
             ],
           },
 
@@ -303,6 +308,10 @@ export default defineEventHandler((event) => {
                 type: "text",
                 content: "Si vous vous sentez mal à cause du cyberharcèlement, parlez-en à quelqu'un. Que ce soit un ami, un parent ou un adulte de confiance, il y a toujours quelqu'un pour vous aider. Et rappelez-vous, ça ne fait pas de vous un faible de demander de l'aide, au contraire, ça montre à quel point vous êtes forts."
               },
+              {
+                "type": "keyword",
+                "content": ["Cyberharcèlement", "Bien-être", "Mental", "Messages", "Isolement", "Effets", "Réseauxsociaux"]
+              }              
             ]
           },
 
@@ -340,7 +349,12 @@ export default defineEventHandler((event) => {
               {
                 "type": "text",
                 "content": "Si tu es témoin de cyber harcèlement ou que tu vis une cyber attaque, n’hésite pas à en parler à une personne de confiance ou à un professionnel."
-              }              
+              },
+              {
+                "type": "keyword",
+                "content": ["Cyberharcèlement", "Enquête", "Résultat", "Dangerinternet", "Sensibilisation", "Atelierdeprévention", "Aide", "Réseauxsociaux", "Témoins"]
+              }
+                       
             ]
           },
 
@@ -441,7 +455,10 @@ export default defineEventHandler((event) => {
                 content: `Anaïs : Pareil, ça va dépendre de chaque personne, au niveau des étapes ce serait de s’éloigner de ce qui est toxique pour la personne, de ce qui a été un traumatisme dans un premier temps. Puis essayer de reconstruire une personnalité qui sera nécessairement différente et qui lui convient après ce qu’elle a vécu à travers des activités, des loisirs et la valorisation de soi-même. Enfin surtout laisser faire le temps et être accompagné par des professionnels.
                 Karine : Alors ce serait de consulter un professionnel en comprenant ce qu’il s’est passé, ensuite de déculpabiliser l’enfant ou l’adulte, de lui montrer qu’il y est pour rien et expliquer les mécanismes inconscient de la manipulation. Après on accepte d’avoir été victime et pas coupable pour faire reprendre de la confiance en soi. Enfin, qu’ils soient attentif à ce qu’ils arrivent à faire, à le réussir, être attentif à tous les messages positifs qui viennent de leur entourage`
               },
-              
+              {
+                "type": "keyword",
+                "content": ["Cyberharcèlement", "Interview", "Professionnels", "Psychologues", "Symptômes", "Santémentale", "Soutien", "Communication", "Réseauxsociaux"]
+              }              
             ],
           },
 
