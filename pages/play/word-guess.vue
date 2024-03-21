@@ -159,24 +159,24 @@ button {
 }
 
 .button-inactive {
-  background-color: #ccc; /* Gray background */
-  color: #666; /* Darker text for contrast */
-  cursor: not-allowed; /* Shows a "disabled" cursor */
+  background-color: #ccc; 
+  color: #666;
+  cursor: not-allowed; 
 }
 
 .button-active {
-  background-color: var(--color-orange-dark); /* Active state color */
-  color: white; /* Active state text color */
+  background-color: var(--color-orange-dark); 
+  color: white; 
   cursor: pointer;
 }
 
 .button-inactive:hover, .button-active:hover {
-  background-color: var(--color-orange-light); /* You might want to remove hover effect for inactive button */
+  background-color: var(--color-orange-light); 
 }
 
 .resulat{
   padding-top: 20px;
-  min-height: 50px; /* Ajustez en fonction de la taille de votre contenu */
+  min-height: 50px; 
   width: 100%;
   display: flex;
   justify-content: center;

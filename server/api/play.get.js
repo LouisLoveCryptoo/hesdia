@@ -14,6 +14,7 @@ export default defineEventHandler((event) => {
         },
         {
             id: 3,
+<<<<<<< HEAD
             title: 'Simulateur',
             path: '/play/conversation-simulator',
             desc: 'Jouez avec les cartes mémoires pour découvrir les différents gestes simples',
@@ -23,6 +24,11 @@ export default defineEventHandler((event) => {
             title: 'Jeu de mots',
             path: '/play/word-guess',
             desc: 'Jouez avec les cartes mémoires pour découvrir les différents gestes simples',
+=======
+            title: 'Trouve le Mot!',
+            path: '/play/word-guess',
+            desc: 'Découvrez des mots cachés grâce aux indices, testez votre vocabulaire et relevez le défi de trouver le bon mot!',
+>>>>>>> e6a7d56 (j'ai enlevé les commentaires chatgpt)
         }
 
     ]
