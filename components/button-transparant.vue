@@ -11,8 +11,8 @@ a {
   color: var(--color-orange-dark);
   font-weight: 400;
   cursor: pointer;
-  border: 4px solid var(--color-orange-dark);
-  width: min-content;   
+  border: 3px solid var(--color-orange-dark);
+  width: min-content;
 }
 
 
