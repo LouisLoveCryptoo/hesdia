@@ -3,6 +3,8 @@
   <main-header />
   <chatbot-assistant />
   <slot />
+  <main-footer />
+
 </template>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@2050&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
