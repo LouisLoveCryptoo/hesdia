@@ -160,7 +160,7 @@ router.afterEach(() => {
 
 const start = 'top bottom'
 const end = 'bottom top'
-const duration = 0.4
+const duration = 0.6
 const delay = 0
 
 const initAnimations = (elements, axis) => {

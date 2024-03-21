@@ -2,7 +2,7 @@
 
 
 
-    <div class="article">
+    <div class="article transition-x">
         <div class="image">
             <img src="http://localhost:3000/api/files/article-2.png" alt="">
         </div>

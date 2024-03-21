@@ -5,7 +5,7 @@
         <p>Des lycéens sont confrontés au <br> cyber-harcèlement </p>
     </div>
 
-    <div class="imgVingtSept">
+    <div class="imgVingtSept transition-x">
         <img src="../assets/img/coeurToutChoupi.svg" alt="">
     </div>
 </div>

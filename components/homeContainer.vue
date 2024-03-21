@@ -1,8 +1,8 @@
 <template>
     <div class="homeContainer">
         <div class="text">
-          <h1 class="strong">Avec Hesdia,</h1>
-          <div class="textImg">
+          <h1 class="strong transition-y">Avec Hesdia,</h1>
+          <div class="textImg transition-x">
             <h1 class="notStrong">luttons pour un web sans peur</h1>
             <img class="epis" src="../assets/img/epis.svg" alt="" />
 

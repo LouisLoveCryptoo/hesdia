@@ -5,8 +5,8 @@
         </div>
 
         <div class="right">
-            <h2>C’est quoi le cyber-harcèlement</h2>
-            <p>Découvre en 2 minutes c’est quoi le cyber-harcèlement et comment lutter contre.</p>
+            <h2 class="transition-y">C’est quoi le cyber-harcèlement</h2>
+            <p class="transition-x">Découvre en 2 minutes c’est quoi le cyber-harcèlement et comment lutter contre.</p>
             <button-phone path="/blog" :phone="false">
                 Voir plus
               </button-phone>

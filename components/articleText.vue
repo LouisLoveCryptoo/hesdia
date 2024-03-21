@@ -1,5 +1,5 @@
 <template>
-  <div class="article">
+  <div class="article transition-x">
     <div class="text">
       <h3>Le témoignage d'un adolescent</h3>
       <p>Comment j'ai affronté le cyberharcèlement</p>
