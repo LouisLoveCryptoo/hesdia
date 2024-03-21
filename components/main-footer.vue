@@ -28,14 +28,17 @@
           
               <input type="email" class="input-mail" placeholder="Adresse mail">
 
-              <nuxt-link to=""><img class="validation" src="../assets/img/validation.svg" alt=""></nuxt-link>
+              <nuxt-link to="#">
+                <img class="validation" src="../assets/img/validation.svg" alt="Icône de validation">
+              </nuxt-link>
+              
             
         </div>
 
             <div class="trucChiant">
                 <nuxt-link to="">Tous droits réservés</nuxt-link> |
                 <nuxt-link to="">Mentions légales</nuxt-link> |
-                <nuxt-link to="">Politique de confidentialité</nuxt-link> |
+                <nuxt-link to="">Politique de confidentialité</nuxt-link> 
             </div>
     </div>
 
@@ -49,8 +52,8 @@ footer{
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 400px;
     background-color: var(--bg-color-secondary);
+    padding: var(--sides-padding);
 }
 
 .center{
@@ -82,7 +85,7 @@ footer{
     display: flex;
     align-items: center;
     border: 1px solid black;
-    width: 50%;
+    width: 70%;
     padding: 10px;
     border-radius: 5px;
   }
@@ -105,8 +108,27 @@ footer{
     width: 100%; /* l'input prend tout l'espace restant */
     background-color: transparent;
   }
-  .logo-mail img.validation{
 
+  .validation{
+    display: flex;
+    align-items: center;
+  }
+  img.validation{
+    min-width: 20px;
+    min-height: 20px;
+    border-left: 1px solid black; /* Ajoute une bordure sur le côté gauche */
+    padding-left: 10px; /* Espace entre l'icône et le bord */
+    cursor: pointer; /* Change le curseur lors du survol de l'image */
+  }
+
+  .trucChiant{
+    padding-top: 20px;
+    opacity: 0.6;
+  }
+
+  .trucChiant a{
+    font-size: 12px;
+    cursor: pointer;
   }
 
 </style>
