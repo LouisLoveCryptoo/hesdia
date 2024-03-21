@@ -23,7 +23,12 @@ export default defineEventHandler((event) => {
             title: 'Jeu de mots',
             path: '/play/word-guess',
             desc: 'Jouez avec les cartes mémoires pour découvrir les différents gestes simples',
-        }
-
+        },
+        {
+            id: 4,
+            title: 'Sandbox',
+            path: '/sandbox',
+            desc: 'Dessinez et écrivez ce que vous voulez pour vous exprimer librement',
+        },
     ]
 })

@@ -91,6 +91,7 @@ const sendData = () => {
   left: 0;
   display: flex;
   flex-direction: column;
+  z-index: 3;
 }
 
 .sandbox__chat form {

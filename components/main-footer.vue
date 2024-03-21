@@ -1,4 +1,4 @@
-<template> 
+<template>
 <footer>
     <div class="left">
         <img src="../assets/img/logo.svg" alt="">
@@ -25,20 +25,20 @@
             <div class="logo-mail">
                 <img src="../assets/img/mail.svg" alt="Icône de mail">
             </div>
-          
+
               <input type="email" class="input-mail" placeholder="Adresse mail">
 
               <nuxt-link to="#">
                 <img class="validation" src="../assets/img/validation.svg" alt="Icône de validation">
               </nuxt-link>
-              
-            
+
+
         </div>
 
             <div class="trucChiant">
                 <nuxt-link to="">Tous droits réservés</nuxt-link> |
                 <nuxt-link to="">Mentions légales</nuxt-link> |
-                <nuxt-link to="">Politique de confidentialité</nuxt-link> 
+                <nuxt-link to="">Politique de confidentialité</nuxt-link>
             </div>
     </div>
 
@@ -47,6 +47,7 @@
 
 <style scoped>
 footer{
+    z-index: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -90,23 +91,23 @@ footer{
     padding: 10px;
     border-radius: 5px;
   }
-  
+
   .logo-mail {
     border-right: 1px solid black;
-    padding-right: 10px; 
+    padding-right: 10px;
   }
 
   .logo-mail{
     display: flex;
     align-items: center;
   }
-  
+
   .input-mail {
-    border: none; 
+    border: none;
     outline: none;
-    margin-left: 10px; 
+    margin-left: 10px;
     font-size: 16px;
-    width: 100%; 
+    width: 100%;
     background-color: transparent;
   }
 
@@ -119,7 +120,7 @@ footer{
     min-height: 20px;
     border-left: 1px solid black;
     padding-left: 10px;
-    cursor: pointer; 
+    cursor: pointer;
   }
 
   .trucChiant{
@@ -135,7 +136,7 @@ footer{
     @media screen and (max-width: 1200px) {
         footer{
             flex-direction: column;
-            align-items: center; 
+            align-items: center;
             gap: 25px;
         }
 
@@ -157,7 +158,7 @@ footer{
     @media screen and (max-width: 800px) {
         footer{
             flex-direction: column;
-            align-items: center; 
+            align-items: center;
             gap: 25px;
         }
 
@@ -175,5 +176,5 @@ footer{
             justify-content: center;
         }
     }
-    
+
 </style>

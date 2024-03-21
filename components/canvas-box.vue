@@ -139,7 +139,7 @@ canvas {
   top: 0;
   left: 0;
   background-color: #ecf0f1;
-  z-index: 0;
+  z-index: 1;
 }
 
 .color__container {
@@ -150,9 +150,11 @@ canvas {
   display: flex;
   justify-content: center;
   padding: 10px;
+  z-index: 2;
 }
 
 .color__container span {
+  z-index: 2;
   width: 30px;
   height: 30px;
   border-radius: 50%;

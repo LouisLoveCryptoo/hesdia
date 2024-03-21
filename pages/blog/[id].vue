@@ -1,6 +1,6 @@
 <template>
   <article v-if="article">
-    <img :src="article.img" alt="" />
+    <img :src="'http://localhost:3000' + article.img" alt="" />
     <div class="article__top">
       <h1>{{ article.title }}</h1>
       <div class="article__top-info">
@@ -35,6 +35,11 @@
         <h3 class="content" v-else-if="content.type === 'subtitle'">
           {{ content.content }}
         </h3>
+        <div v-else-if="content.type === 'keyword'" class="keyword__container">
+            <span v-for="kw in content.content">
+                #{{ kw }}
+            </span>
+        </div>
       </div>
     </div>
   </article>
@@ -46,9 +51,10 @@ const id = ref(route.params.id);
 const { data: blog } = await useFetch("/api/blog/", {
   transform: (res) => res.data,
 });
-const article = blog.value.filter((blg) => blg.id == id.value)[0];
-console.log(article);
-console.log(blog.value);
+let article;
+if (blog.value) {
+  article = blog.value.filter((blg) => blg.id == id.value)[0];
+}
 </script>
 <style scoped>
 article {
@@ -67,6 +73,13 @@ article img {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .article__top {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 .article__top-info {
@@ -88,10 +101,26 @@ article img {
 }
 
 .article__content p {
-    text-align: justify;
+  text-align: justify;
 }
 
 .article__content h3 {
-    font-weight: 600;
+  font-weight: 600;
+}
+
+.keyword__container {
+    padding-top: 20px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.keyword__container span {
+    background-color: var(--color-orange-dark);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap
 }
 </style>

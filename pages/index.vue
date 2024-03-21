@@ -1,5 +1,4 @@
 <template>
-  
   <homeContainer />
   <LesNouveauxCommercants />
   <ArticlesContainer />
@@ -7,5 +6,7 @@
   <doubleTrukContainer />
   <SoloTrukContainer />
   <soixante-dix-trente />
-
 </template>
+<style scoped>
+.background: inherit;
+</style>

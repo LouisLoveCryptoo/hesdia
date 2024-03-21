@@ -5,27 +5,27 @@
           <div class="textImg">
             <h1 class="notStrong">luttons pour un web sans peur</h1>
             <img class="epis" src="../assets/img/epis.svg" alt="" />
-      
+
           </div>
-        
+
           <p>Le média de prévention contre le cyber-harcèlement pour les jeunes</p>
         </div>
-      
-      
+
+
         <div class="buttonImg">
           <div class="button">
             <button-transparant path="/#">
               Besoin d'aide ?
             </button-transparant>
-      
+
             <button-phone path="/#" :phone="true">
               Numéro prévention
             </button-phone>
           </div>
-      
+
         <img class="bonhomme-pouce" src="../assets/img/bonhomme-pouce.svg" alt="" />
         </div>
-      
+
       </div>
 </template>
 
@@ -85,11 +85,11 @@ p{
   width: 300px;
   padding-right: 40px;
 }
-    
+
 
 @media screen and (max-width: 1200px) {
   img{
-    display: none;  
+    display: none;
   }
 }
 
@@ -97,7 +97,7 @@ p{
 
 @media screen and (max-width: 800px) {
   img{
-    display: none;  
+    display: none;
   }
 }
 
