@@ -114,11 +114,11 @@ a {
     --sides-padding: 1rem;
 
 
-    --fs-title: 3rem; 
-    --fs-subtitle: 1.6rem; 
-    --fs-subsubtitle: 1.4rem; 
+    --fs-title: 3rem;
+    --fs-subtitle: 1.6rem;
+    --fs-subsubtitle: 1.4rem;
     --fs-button: 1.2rem;
-    --fs-text: 1.2rem; 
+    --fs-text: 1.2rem;
     --fs-ptitext: 0.8rem;
   }
 }
@@ -127,12 +127,25 @@ a {
   :root {
     --sides-padding: 1rem;
 
-    --fs-title: 2.4rem; 
-    --fs-subtitle: 1.5rem; 
-    --fs-subsubtitle: 1.2rem; 
+    --fs-title: 2.4rem;
+    --fs-subtitle: 1.5rem;
+    --fs-subsubtitle: 1.2rem;
     --fs-button: 1.1rem;
-    --fs-text: 1.1rem; 
-    --fs-ptitext: 0.7rem; 
+    --fs-text: 1.1rem;
+    --fs-ptitext: 0.7rem;
   }
 }
+
+/* Animations transitions (GSAP) */
+.transition-x, .transition-y {
+  opacity: 0;
+  filter: blur(5px);
+}
+.transition-x {
+  transform: translateX(30px);
+}
+.transition-y {
+  transform: translateY(30px);
+}
+
 </style>

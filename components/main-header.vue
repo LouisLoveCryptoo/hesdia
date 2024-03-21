@@ -123,7 +123,7 @@ header.active nav a {
 
 <template>
   <header :class="{'active': active, 'scroll': scroll}">
-    <nuxt-link to="/"class="logo">
+    <nuxt-link to="/" class="logo">
       <img src="../assets/img/logo.svg" alt="" />
     </nuxt-link>
 
@@ -141,24 +141,61 @@ header.active nav a {
   </header>
 </template>
 <script setup>
-const active = ref(false);
-const scroll = ref(false);
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-const router = useRouter();
+gsap.registerPlugin(ScrollTrigger)
+
+const active = ref(false)
+const scroll = ref(false)
+
+const router = useRouter()
 router.beforeEach(() => {
-  scroll.value = false;
-});
+  scroll.value = false
+})
 
 router.afterEach(() => {
-  active.value = false;
-});
+  active.value = false
+})
+
+const start = 'top bottom'
+const end = 'bottom top'
+const duration = 0.4
+const delay = 0
+
+const initAnimations = (elements, axis) => {
+  elements.forEach((element) => {
+    const animationProps = {
+      opacity: 1,
+      [axis]: 0,
+      filter: 'blur(0px)',
+      duration,
+      delay,
+      ease: 'Power2.easeOut',
+      scrollTrigger: {
+        trigger: element,
+        start,
+        end,
+        toggleActions: 'play reverse play reverse',
+      },
+    }
+
+    gsap.to(element, animationProps)
+  })
+}
 
 onMounted(() => {
   document.addEventListener('wheel', (e) => {
     if (e.deltaY > 0) {
-      active.value = false;
+      active.value = false
     }
-    e.clientY > 10 ? scroll.value = true : scroll.value = false;
+    e.clientY > 10 ? scroll.value = true : scroll.value = false
   })
+
+  const elementsX = document.querySelectorAll('.transition-x')
+  const elementsY = document.querySelectorAll('.transition-y')
+
+  initAnimations(elementsX, 'x')
+  initAnimations(elementsY, 'y')
 })
 </script>

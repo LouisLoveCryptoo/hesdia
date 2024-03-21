@@ -21,7 +21,9 @@
       </div>
 
     <button>
-      Voir toutes les actualités
+      <nuxt-link to='blog'>
+        Voir toutes les actualités
+      </nuxt-link>
     </button>
 
   </div>
