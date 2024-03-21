@@ -259,4 +259,30 @@
   height: auto;
 }
 
+
+@media (max-width: 900px) {
+
+  .content{
+    padding: 35% 0 0 0;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: left;
+    margin: 0 10%;
+
+  }
+  .content h1{
+    font-size: 24px;
+  }
+
+  .content h3{
+    font-size: 20px;
+  }
+
+  .bras{
+    top: 200px;
+    right: 0;
+  }
+}
 </style>
