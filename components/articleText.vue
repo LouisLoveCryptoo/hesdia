@@ -30,7 +30,7 @@
 background-color: var(--bg-color-main);
 position: relative;
 height: 250px;
-width: clamp(300px, 100%, 450px);
+width: clamp(400px, 100%, 450px);
 overflow: hidden;
 }
 

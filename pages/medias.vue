@@ -16,29 +16,20 @@
 
   </div>
 
-  <div class="articles">
-    <div class="parent">
-      <div class="div1"> 
-        <p><articlePhoto /></p>
-
-
+  <div class="nouveauxArticles">
+      <div class="gauche">
+        <articlePhoto />
+        <articleText /> 
       </div>
-      <div class="div2"> 
-        <p><articleText /></p>
 
+      <div class="droite">
+        <ArticleText />
+        <articlePhotoLeft />
       </div>
-      <div class="div3"> 
-        <p><ArticleText /></p>
-
-      </div>
-      <div class="div4"> 
-        <p><articlePhotoLeft /></p>
-
-      </div>
-    </div>
-    <button-phone path="/#" :phone="false">
-      Voir plus
-    </button-phone>
+  
+    <button>
+      Voir toutes les actualités
+    </button>
 
   </div>
 
@@ -132,43 +123,49 @@
 }
 
 
-.articles{
+.nouveauxArticles{
   display: flex;
+  flex-direction: row;
+  gap: 420px;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin: 0 10%;
-  justify-content: space-between;
-  align-items: left;
+  padding-left:15%;
+  
 }
 
-.parent {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 40px;
-  grid-row-gap: 40px;
-  }
-  
-  .div1 { grid-area: 1 / 1 / 3 / 3; }
-  .div2 { grid-area: 1 / 3 / 3 / 5; }
-  .div3 { grid-area: 3 / 1 / 5 / 3; }
-  .div4 { grid-area: 3 / 3 / 5 / 5; }
+.nouveauxArticles .gauche{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
 
-.articles button{
-  height:35px;
+
+.nouveauxArticles .droite{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+
+
+.nouveauxArticles button{
+  height:40px;
+  padding: 0 2%;
   background-color: var(--color-orange-dark);
   color: var(--color-text);
   border: none;
-  padding: 10px 20px;
   border-radius: 50px;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   transition: ease 0.3s;
 
+
 }
 
-.articles button:hover{
+.nouveauxArticles button:hover{
   background-color: var(--color-orange-light);
   transition: ease 0.3s;
 }
@@ -284,5 +281,48 @@
     top: 200px;
     right: 0;
   }
+}
+
+@media (max-width: 700px) {
+  
+    .content{
+      padding: 35% 0 0 0;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: left;
+      margin: 0 10%;
+  
+    }
+    .content h1{
+      font-size: 24px;
+    }
+  
+    .content h3{
+      font-size: 20px;
+    }
+  
+    .bras{
+      top: 200px;
+      right: 0;
+    }
+  
+    .nouveauxArticles{
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+      margin-top:-150px;
+      gap:20px;
+      
+    }
+  
+    .itw svg{
+      top: 10px;
+      left: 550px;
+      z-index: 10;
+      width: 10%;
+      height: auto;
+    }
 }
 </style>
