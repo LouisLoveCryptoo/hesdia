@@ -36,7 +36,9 @@
 
       </div>
     </div>
-    <button>Voir toutes les actualités</button>
+    <button-phone path="/#" :phone="false">
+      Voir plus
+    </button-phone>
 
   </div>
 
@@ -45,7 +47,9 @@
     <div class="infos">
       <h2>C’est quoi le cyber-harcèlement</h2>
       <p>Découvre en 2 minutes c’est quoi le cyber-harcèlement et comment lutter contre.</p>
-      <button>Voir plus</button>
+      <button-phone path="/#" :phone="false">
+        Voir plus
+      </button-phone>
     </div>
   </div>
 
@@ -188,6 +192,8 @@
   gap: 10px;
   padding: 5%;
   background-color: var(--bg-color-main);
+  gap: 50px;
+
 }
 
 .motion h2{

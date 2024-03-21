@@ -3,7 +3,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem var(--sides-padding);
+  padding: 1rem var(--sides-padding); 
   z-index: 1000;
   position: fixed;
   width: 100vw;

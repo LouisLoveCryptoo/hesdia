@@ -35,6 +35,7 @@ import doubleTrukContainer from '~/components/doubleTrukContainer.vue';
 <vingtSeptContainer />
 <doubleTrukContainer />
 <SoloTrukContainer />
+<soixante-dix-trente />
 
 </template>
 

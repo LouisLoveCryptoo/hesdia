@@ -1,81 +1,204 @@
 <template>
-    <div class="wordGuessContainer">
+  <div class="wordGuessContainer">
+    <div class="title">
       <h2>Trouve le bon mot !</h2>
-      <h1 v-if="status === 'Success'">GG! Tu l'as</h1>
-      <h1 v-else-if="status === 'Failure'">OH NO! Tu l'as pas</h1>
-  
-      <br><br>
-      <p>{{ playData[currentId].hint }}</p>
-      <br>
-      <p>Lettres correctes : </p>
-      <input type="text" v-model="text" @input="consoleLogText()" @keydown="handleKeyDown($event)">
+    </div>
 
-      <div v-if="greenLetters.length > 0">
-        <p>Mot = </p>
+    <p>{{ playData[currentId].hint }}</p>
+
+    <div class="input-area">
+      <p>Lettres correctes :</p>
+      <input type="text" v-model="text" @input="consoleLogText()" @keydown="handleKeyDown($event)">
+    </div>
+
+    <div v-if="greenLetters.length > 0" class="lettres">
+      <p>Lettres présentes dans le mot :</p>
+      <div class="mots">
         <ul>
           <li v-for="letter in greenLetters" :key="letter">{{ letter }}</li>
         </ul>
       </div>
+    </div>
 
-      <br><br>
-      <p>Insère le mot trouvé : </p>
+    <form class="motTrouve" @submit.prevent="checkAnswer">
+      <input type="text" v-model="answer" placeholder="Réponse">
+      <button type="submit">Valider</button>
+    </form>
 
-      <form @submit.prevent="checkAnswer">
-        <input type="text" v-model="answer" placeholder="Réponse"> 
-        <button type="submit">Valider</button>
-      </form>
+    <div class="game-info"> 
       
-      <br><br>
+      <button 
+      :class="{ 'button-active': aideCount <= 0, 'button-inactive': aideCount > 0 }"
+      :disabled="aideCount > 0"
+      @click="showHint">
+      Besoin d'aide ? <span v-show="aideCount > 0">{{ aideCount }}</span>
+    </button>
 
-      <p>Nombre d’essai restant : </p>
-      <button v-if="status === 'Success'" @click="nextWord">Mot suivant</button>
-     
-      <button v-if="failureCount > 5" @click="showHint">Besoin d'aide ?</button>
-      <div v-if="guessedLetter">
-        <p>Lettre devinée : {{ guessedLetter }}</p>
-      </div>
-  
 
-    <h4>Nombre d'échecs : {{ failureCount }}</h4>
-    <h4>Statut actuel : {{ status }}</h4>
-    <button @click="playAgain">Play Again</button>
-    
-  
-  
-  
-  
-  
-  
-  <div>
+      <button @click="playAgain">Play Again</button>
+      
+      <p>Nombre d'échecs : {{ failureCount }}</p>
+    </div>
 
-    <img class="interrogationPOINT" src="@/assets/img/interrogationPOINT.svg" alt="">
-    <img class="arrow" src="@/assets/img/arrow.svg" alt="">
-  </div>
+    <div v-if="guessedLetter">
+      <p>Lettre devinée : {{ guessedLetter }}</p>
+    </div>
+
+    <div class="resulat">
+      <div v-if="status === 'Success' || status === 'Failure'" class="resultat">
+        <h2 v-if="status === 'Success'">GG! Tu l'as</h2>
+        <h2 v-else-if="status === 'Failure'">OH NO! Tu l'as pas</h2>
+    </div>
+    <button class="motsuivant" v-if="status === 'Success'" @click="nextWord">Mot suivant</button>
+
   </div>
 
-
+  <img class="interrogationPOINT" src="@/assets/img/interrogationPOINT.svg" alt="">
+  <img class="arrow" src="@/assets/img/arrow.svg" alt="">
+</div>
 </template>
-  
+
+
+
 <style scoped>
-  .wordGuessContainer{
-    padding: var(--sides-padding);
-    padding-top: 200px;
-    padding-left: 300px;
-    height: 100vh;
-  }
+.wordGuessContainer {
+  padding: var(--sides-padding);
+  padding-top: 20px;
+  height: 100vh;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
 
-  .wordGuessContainer img.arrow{
-    position: absolute;
-    left: 0px;
-    top: 250px;
-  }
+.title h2 {
+  margin: 10px 0;
+}
 
-  .wordGuessContainer img.interrogationPOINT{
-    position: absolute  ;
-    right: 50px;
+.game-info{
+  display: flex;
+  align-items: center;
+}
 
-    
-  }
+.input-area{
+  display: flex;
+  align-items: center;
+}
+
+.input-area, .lettres, .motTrouve, .game-info {
+  width: 100%;
+  max-width: 600px; 
+  margin: 10px 0;
+}
+
+.input-area p, .lettres p {
+  text-align: left;
+}
+
+.mots ul {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+}
+
+.mots li {
+  background-color: var(--color-orange-dark);
+  color: white;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.motTrouve {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.motTrouve input[type="text"] {
+  flex-grow: 1;
+}
+
+.input-area input[type="text"]{
+  margin-left: 10px;
+}
+
+.motTrouve input[type="text"], .input-area input[type="text"] {
+  padding: 10px;
+  margin-right: 10px;
+  border: 2px solid var(--color-orange-dark);
+  border-radius: 5px;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--color-orange-dark);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.motTrouve button:hover, .game-info .button-active:hover {
+  background-color: var(--color-orange-light);
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.button-inactive {
+  background-color: #ccc; /* Gray background */
+  color: #666; /* Darker text for contrast */
+  cursor: not-allowed; /* Shows a "disabled" cursor */
+}
+
+.button-active {
+  background-color: var(--color-orange-dark); /* Active state color */
+  color: white; /* Active state text color */
+  cursor: pointer;
+}
+
+.button-inactive:hover, .button-active:hover {
+  background-color: var(--color-orange-light); /* You might want to remove hover effect for inactive button */
+}
+
+.resulat{
+  padding-top: 20px;
+  min-height: 50px; /* Ajustez en fonction de la taille de votre contenu */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.motsuivant{
+  margin-top: 20px;
+}
+
+.wordGuessContainer img.arrow{
+  position: absolute;
+  left: 0px;
+  top: 250px;
+  z-index: -1;
+}
+
+.wordGuessContainer img.interrogationPOINT{
+  position: absolute  ;
+  right: 50px; 
+  z-index: -1;
+}
 </style>
 
 <script setup>
@@ -87,6 +210,7 @@
   const currentId = ref(0); 
   let failureCount = ref(0);
   const guessedLetter = ref('');
+  const aideCount = ref(5);
   
   /**
  * Parcourt chaque lettre du mot à deviner, si la lettre rentré dans le input="Text" et que celle ci n'est pas déjà dans la li "greenLetters" alors elle ajoute le mot
@@ -124,7 +248,10 @@
     status.value = 'Success';
   } else {
     status.value = 'Failure';
-    failureCount.value++; 
+    failureCount.value++;
+    if (aideCount.value > 0) {
+      aideCount.value--; // Decrement aideCount when there's a failure
+    }
   }
 };
 
@@ -161,6 +288,7 @@ const showHint = () => {
     currentId.value++;
     failureCount.value = 0;
     guessedLetter.value = '';
+    aideCount.value = 5; 
     playAgain();
   };
   </script>

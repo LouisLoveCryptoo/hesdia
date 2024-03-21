@@ -24,8 +24,8 @@ a .phone {
 }
 
 a.dark {
-  background: var(--color-orange-dark);
-  color: var(--bg-color-primary);
+  background: var(--bg-color-secondary);
+  color: var(--color-orange-dark);
 }
 </style>
 
