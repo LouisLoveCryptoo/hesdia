@@ -241,33 +241,42 @@
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
 
   .content{
-    padding: 35% 0 0 0;
-    display:flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: left;
-    margin: 0 10%;
+      padding: 20% 0 0 0;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: left;
+      margin: 0 10%;
 
   }
   .content h1{
-    font-size: 24px;
+    font-size: 36px;
   }
 
   .content h3{
-    font-size: 20px;
+    font-size: 32px;
   }
 
   .bras{
     top: 200px;
     right: 0;
   }
+
+  .nouveauxArticles{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-top:-150px;
+    gap:20px;
+
+  }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
     .content{
       padding: 35% 0 0 0;

@@ -1,6 +1,6 @@
 <style scoped>
 .gameplay {
-  height: 100vh;
+  height: 115vh;
   background-color: var(--bg-color-secondary);
   position: relative;
 }
