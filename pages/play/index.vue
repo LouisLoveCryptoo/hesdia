@@ -10,6 +10,10 @@
     </p>
   </nuxt-link>
 </template>
+
+<style>
+
+</style>
 <script setup>
 const { data: games } = useFetch("/api/play");
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="lesNouveauxCommercants">
         <div class="left">
-            <h2>VID2O DE LOLO</h2>
+            <video src="http://localhost:3000/api/files/pres-video.mp4" controls></video>
         </div>
 
         <div class="right">
@@ -31,6 +31,11 @@
     color: var(--bg-color-secondary);
     width: 60vw;
     background-color: var(--color-text);
+    padding: 25px;
+}
+.lesNouveauxCommercants .left video{
+    height: 100%;
+    width: 100%;
 }
 
 .right{
@@ -48,6 +53,13 @@
         width: 100%;
         height:auto;
         flex-direction: column;
+    }
+    .left{
+        width: 100%;
+    }
+    .right{
+        align-items: center;
+        width: 100%;
     }
 }
 

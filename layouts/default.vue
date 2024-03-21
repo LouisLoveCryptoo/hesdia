@@ -9,7 +9,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@2050&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 /*  SCROLLBAR  */
-/* scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
 }
