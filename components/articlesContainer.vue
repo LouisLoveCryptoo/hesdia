@@ -12,7 +12,7 @@
     </div>
 
     <div class="buttonDeMort">
-      <button-phone path="/#" :phone="false" :dark="true">
+      <button-phone path="/blog" :phone="false" :dark="true">
         Voir plus
       </button-phone>
     </div>

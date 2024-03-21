@@ -8,5 +8,7 @@
   <soixante-dix-trente />
 </template>
 <style scoped>
-.background: inherit;
+.backgroudn {
+  background-color: inherit;
+}
 </style>

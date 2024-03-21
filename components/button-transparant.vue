@@ -33,6 +33,7 @@ a p {
 </template>
 <script setup>
 const props = defineProps({
-  path: String
+  path: String,
+  default: "/blog"
 })
 </script>

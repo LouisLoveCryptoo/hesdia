@@ -48,6 +48,7 @@ const props = defineProps({
   path: {
     type: String,
     required: true,
+    default: "/blog",
   },
   phone: {
     type: Boolean,
